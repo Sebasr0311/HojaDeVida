@@ -24,13 +24,17 @@
 </head>
 <body class="dark-mode">
 
+  <!-- CSS-only controls: checkboxes as siblings of content -->
+  <input type="checkbox" id="theme-toggle" class="theme-toggle-input" aria-label="Cambiar tema" />
+  <input type="checkbox" id="menu-toggle" class="menu-toggle-input" aria-label="Abrir menú" />
+
   <!-- NAVBAR -->
   <header class="navbar" role="banner">
     <div class="nav-container">
       <a href="#inicio" class="nav-logo" aria-label="Inicio">
         <span class="logo-bracket">&lt;</span>JSRF<span class="logo-bracket">/&gt;</span>
       </a>
-      <nav class="nav-links" role="navigation" aria-label="Navegación principal" id="nav-menu">
+      <nav class="nav-links" role="navigation" aria-label="Navegación principal">
         <a href="#inicio" class="nav-link">Inicio</a>
         <a href="#sobre-mi" class="nav-link">Sobre mí</a>
         <a href="#formacion" class="nav-link">Formación</a>
@@ -39,15 +43,15 @@
         <a href="#contacto" class="nav-link">Contacto</a>
       </nav>
       <div class="nav-actions">
-        <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema">
+        <label for="theme-toggle" class="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema" role="button" tabindex="0">
           <span class="theme-icon theme-icon--moon" aria-hidden="true">🌙</span>
           <span class="theme-icon theme-icon--sun" aria-hidden="true">☀️</span>
-        </button>
-        <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+        </label>
+        <label for="menu-toggle" class="hamburger" aria-label="Abrir menú" role="button" tabindex="0">
           <span class="ham-line"></span>
           <span class="ham-line"></span>
           <span class="ham-line"></span>
-        </button>
+        </label>
       </div>
     </div>
   </header>
@@ -58,23 +62,23 @@
   <section class="hero" id="inicio" aria-label="Presentación">
     <div class="hero-bg-grid" aria-hidden="true"></div>
     <div class="hero-content">
-      <div class="hero-badge reveal-up">
+      <div class="hero-badge">
         <span class="badge-dot" aria-hidden="true"></span>
         Disponible para colaborar
       </div>
-      <h1 class="hero-name reveal-up">
+      <h1 class="hero-name">
         Juan Sebastian<br />
         <span class="hero-name-accent">Rincón Farelo</span>
       </h1>
-      <p class="hero-role reveal-up">
-        <span class="typewriter" id="typewriter"></span>
+      <p class="hero-role">
+        Estudiante de Ingeniería de Sistemas | Desarrollador de Software en formación
       </p>
-      <p class="hero-description reveal-up">
+      <p class="hero-description">
         Estudiante de quinto semestre de Ingeniería de Sistemas y Tecnólogo en Análisis y Desarrollo
         de Software del SENA, con experiencia práctica en desarrollo de software, desarrollo web,
         bases de datos y automatización de procesos.
       </p>
-      <div class="hero-cta reveal-up">
+      <div class="hero-cta">
         <a href="#proyectos" class="btn btn-primary">
           <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h12"/></svg>
           Ver proyectos
@@ -88,7 +92,7 @@
           Contactarme
         </a>
       </div>
-      <div class="hero-location reveal-up">
+      <div class="hero-location">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" class="location-icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
         Valledupar, Cesar, Colombia
       </div>
@@ -99,17 +103,17 @@
   <!-- SOBRE MÍ -->
   <section class="section" id="sobre-mi" aria-labelledby="about-title">
     <div class="container">
-      <div class="section-header reveal-up">
+      <div class="section-header">
         <span class="section-label">Acerca de</span>
         <h2 class="section-title" id="about-title">Sobre mí</h2>
       </div>
       <div class="about-grid">
-        <div class="about-text reveal-left">
+        <div class="about-text">
           <p>Soy estudiante de quinto semestre de <strong>Ingeniería de Sistemas</strong> en la Universidad Popular del Cesar y <strong>Tecnólogo en Análisis y Desarrollo de Software</strong> del SENA. Mi formación me ha permitido desarrollar conocimientos sólidos en programación, desarrollo web, bases de datos y construcción de soluciones de software.</p>
           <p>He trabajado en proyectos académicos y personales en los que he aplicado lenguajes como <strong>Java, Python y C++</strong>, además de tecnologías relacionadas con el desarrollo web, bases de datos relacionales (PL/SQL), APIs REST y automatización de procesos.</p>
           <p>Actualmente continúo fortaleciendo mis conocimientos en ingeniería de software, arquitectura de aplicaciones, bases de datos e Inteligencia Artificial, con el objetivo de convertirme en un ingeniero de software capaz de construir soluciones de impacto real.</p>
         </div>
-        <div class="about-cards reveal-right">
+        <div class="about-cards">
           <div class="info-card">
             <div class="info-card-icon" aria-hidden="true">🎓</div>
             <div>
@@ -146,13 +150,13 @@
   <!-- FORMACIÓN ACADÉMICA -->
   <section class="section section--alt" id="formacion" aria-labelledby="education-title">
     <div class="container">
-      <div class="section-header reveal-up">
+      <div class="section-header">
         <span class="section-label">Educación</span>
         <h2 class="section-title" id="education-title">Formación académica</h2>
       </div>
       <div class="timeline">
 
-        <article class="timeline-item reveal-left">
+        <article class="timeline-item">
           <div class="timeline-connector" aria-hidden="true">
             <div class="timeline-dot timeline-dot--primary"></div>
             <div class="timeline-line"></div>
@@ -172,7 +176,7 @@
           </div>
         </article>
 
-        <article class="timeline-item reveal-left">
+        <article class="timeline-item">
           <div class="timeline-connector" aria-hidden="true">
             <div class="timeline-dot timeline-dot--secondary"></div>
             <div class="timeline-line"></div>
@@ -192,7 +196,7 @@
           </div>
         </article>
 
-        <article class="timeline-item reveal-left">
+        <article class="timeline-item">
           <div class="timeline-connector" aria-hidden="true">
             <div class="timeline-dot timeline-dot--accent"></div>
           </div>
@@ -218,13 +222,13 @@
   <!-- HABILIDADES -->
   <section class="section" id="habilidades" aria-labelledby="skills-title">
     <div class="container">
-      <div class="section-header reveal-up">
+      <div class="section-header">
         <span class="section-label">Tecnologías</span>
         <h2 class="section-title" id="skills-title">Habilidades técnicas</h2>
         <p class="section-subtitle">Tecnologías y herramientas que he utilizado en mis proyectos</p>
       </div>
       <div class="skills-grid">
-        <div class="skill-category reveal-up">
+        <div class="skill-category">
           <div class="skill-category-header">
             <span class="skill-category-icon" aria-hidden="true">⚙️</span>
             <h3 class="skill-category-title">Programación</h3>
@@ -235,7 +239,7 @@
             <span class="skill-tag skill-tag--cpp">C++</span>
           </div>
         </div>
-        <div class="skill-category reveal-up">
+        <div class="skill-category">
           <div class="skill-category-header">
             <span class="skill-category-icon" aria-hidden="true">🌐</span>
             <h3 class="skill-category-title">Desarrollo Web</h3>
@@ -250,7 +254,7 @@
             <span class="skill-tag">APIs REST</span>
           </div>
         </div>
-        <div class="skill-category reveal-up">
+        <div class="skill-category">
           <div class="skill-category-header">
             <span class="skill-category-icon" aria-hidden="true">🗄️</span>
             <h3 class="skill-category-title">Bases de datos</h3>
@@ -262,7 +266,7 @@
           </div>
           <p class="skill-note">Verificado en GitHub: SAED, sistema-administracion-edificios, prueba_proyecto</p>
         </div>
-        <div class="skill-category reveal-up">
+        <div class="skill-category">
           <div class="skill-category-header">
             <span class="skill-category-icon" aria-hidden="true">🛠️</span>
             <h3 class="skill-category-title">Herramientas</h3>
@@ -273,7 +277,7 @@
             <span class="skill-tag">Docker</span>
           </div>
         </div>
-        <div class="skill-category reveal-up">
+        <div class="skill-category">
           <div class="skill-category-header">
             <span class="skill-category-icon" aria-hidden="true">🤖</span>
             <h3 class="skill-category-title">Inteligencia Artificial</h3>
@@ -284,7 +288,7 @@
           </div>
           <p class="skill-note">Conocimientos adquiridos mediante curso Talento Tech</p>
         </div>
-        <div class="skill-category reveal-up">
+        <div class="skill-category">
           <div class="skill-category-header">
             <span class="skill-category-icon" aria-hidden="true">📐</span>
             <h3 class="skill-category-title">Ingeniería de Software</h3>
@@ -303,7 +307,7 @@
   <!-- PROYECTOS -->
   <section class="section section--alt" id="proyectos" aria-labelledby="projects-title">
     <div class="container">
-      <div class="section-header reveal-up">
+      <div class="section-header">
         <span class="section-label">Portafolio</span>
         <h2 class="section-title" id="projects-title">Proyectos</h2>
         <p class="section-subtitle">Proyectos reales extraídos de mi perfil de GitHub</p>
@@ -311,7 +315,7 @@
       <div class="projects-grid">
 
         <!-- SAED -->
-        <article class="project-card reveal-up">
+        <article class="project-card">
           <div class="project-card-header">
             <div class="project-icon" aria-hidden="true">🏗️</div>
             <div class="project-meta">
@@ -337,7 +341,7 @@
         </article>
 
         <!-- Sistema Administración Edificios -->
-        <article class="project-card reveal-up">
+        <article class="project-card">
           <div class="project-card-header">
             <div class="project-icon" aria-hidden="true">🏢</div>
             <div class="project-meta">
@@ -368,7 +372,7 @@
         </article>
 
         <!-- prueba_proyecto -->
-        <article class="project-card reveal-up">
+        <article class="project-card">
           <div class="project-card-header">
             <div class="project-icon" aria-hidden="true">⚡</div>
             <div class="project-meta">
@@ -398,7 +402,7 @@
         </article>
 
         <!-- Restaurante El Buen Sabor -->
-        <article class="project-card reveal-up">
+        <article class="project-card">
           <div class="project-card-header">
             <div class="project-icon" aria-hidden="true">🍽️</div>
             <div class="project-meta">
@@ -418,7 +422,7 @@
         </article>
 
         <!-- Sistema Académico -->
-        <article class="project-card reveal-up">
+        <article class="project-card">
           <div class="project-card-header">
             <div class="project-icon" aria-hidden="true">📚</div>
             <div class="project-meta">
@@ -440,7 +444,7 @@
         </article>
 
         <!-- Sistema Biblioteca -->
-        <article class="project-card reveal-up">
+        <article class="project-card">
           <div class="project-card-header">
             <div class="project-icon" aria-hidden="true">📖</div>
             <div class="project-meta">
@@ -460,7 +464,7 @@
         </article>
 
         <!-- OndasProyecto -->
-        <article class="project-card reveal-up">
+        <article class="project-card">
           <div class="project-card-header">
             <div class="project-icon" aria-hidden="true">🌊</div>
             <div class="project-meta">
@@ -481,7 +485,7 @@
 
       </div>
 
-      <div class="projects-more reveal-up">
+      <div class="projects-more">
         <a href="https://github.com/Sebasr0311" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
           <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
           Ver todos los proyectos en GitHub
@@ -493,13 +497,13 @@
   <!-- EXPERIENCIA EN PROYECTOS -->
   <section class="section" id="experiencia" aria-labelledby="experience-title">
     <div class="container">
-      <div class="section-header reveal-up">
+      <div class="section-header">
         <span class="section-label">Trayectoria</span>
         <h2 class="section-title" id="experience-title">Experiencia en proyectos</h2>
         <p class="section-subtitle">Mi experiencia práctica proviene del desarrollo de proyectos académicos y personales</p>
       </div>
       <div class="experience-grid">
-        <div class="experience-card reveal-up">
+        <div class="experience-card">
           <div class="exp-icon" aria-hidden="true">🖥️</div>
           <h3 class="exp-title">Desarrollo Full-Stack</h3>
           <p class="exp-desc">Construcción de aplicaciones web completas con Java en el backend, PL/SQL para la capa de datos y HTML, CSS, JavaScript para el frontend. Proyectos con despliegue real en Vercel.</p>
@@ -507,7 +511,7 @@
             <span class="tech-tag">Java</span><span class="tech-tag">PL/SQL</span><span class="tech-tag">JavaScript</span><span class="tech-tag">HTML/CSS</span>
           </div>
         </div>
-        <div class="experience-card reveal-up">
+        <div class="experience-card">
           <div class="exp-icon" aria-hidden="true">🗄️</div>
           <h3 class="exp-title">Bases de datos relacionales</h3>
           <p class="exp-desc">Diseño y administración de bases de datos relacionales con PL/SQL y SQL en múltiples proyectos. Creación de esquemas, procedimientos almacenados y consultas complejas.</p>
@@ -515,7 +519,7 @@
             <span class="tech-tag">SQL</span><span class="tech-tag">PL/SQL</span><span class="tech-tag">Oracle</span>
           </div>
         </div>
-        <div class="experience-card reveal-up">
+        <div class="experience-card">
           <div class="exp-icon" aria-hidden="true">☕</div>
           <h3 class="exp-title">Desarrollo orientado a objetos</h3>
           <p class="exp-desc">Implementación de múltiples sistemas en Java (restaurante, biblioteca, sistema académico, full-stack), aplicando POO, patrones de diseño y arquitectura por capas.</p>
@@ -523,7 +527,7 @@
             <span class="tech-tag">Java</span><span class="tech-tag">POO</span><span class="tech-tag">Arquitectura</span>
           </div>
         </div>
-        <div class="experience-card reveal-up">
+        <div class="experience-card">
           <div class="exp-icon" aria-hidden="true">🤝</div>
           <h3 class="exp-title">Trabajo colaborativo</h3>
           <p class="exp-desc">Participación en proyectos grupales con Git y GitHub para control de versiones, colaboración en equipo, gestión de ramas y resolución de conflictos en código.</p>
@@ -538,7 +542,7 @@
   <!-- GITHUB CTA -->
   <section class="section github-cta-section section--alt" aria-labelledby="github-cta-title">
     <div class="container">
-      <div class="github-cta reveal-up">
+      <div class="github-cta">
         <div class="github-cta-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
         </div>
@@ -556,33 +560,31 @@
   <!-- CONTACTO -->
   <section class="section" id="contacto" aria-labelledby="contact-title">
     <div class="container">
-      <div class="section-header reveal-up">
+      <div class="section-header">
         <span class="section-label">Contacto</span>
         <h2 class="section-title" id="contact-title">Hablemos</h2>
         <p class="section-subtitle">¿Tienes un proyecto o propuesta? Estoy disponible para colaborar.</p>
       </div>
       <div class="contact-grid">
-        <a href="https://github.com/Sebasr0311" target="_blank" rel="noopener noreferrer" class="contact-card reveal-up" aria-label="GitHub: Sebasr0311">
+        <a href="https://github.com/Sebasr0311" target="_blank" rel="noopener noreferrer" class="contact-card" aria-label="GitHub: Sebasr0311">
           <div class="contact-icon contact-icon--github" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
           </div>
           <h3 class="contact-label">GitHub</h3>
           <span class="contact-value">@Sebasr0311</span>
         </a>
-        <div class="contact-card contact-card--placeholder reveal-up" aria-label="Correo electrónico — pendiente de agregar">
+        <div class="contact-card contact-card--placeholder" aria-label="Correo electrónico — pendiente de agregar">
           <div class="contact-icon contact-icon--email" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </div>
           <h3 class="contact-label">Correo electrónico</h3>
-          <!-- TODO: completar información — agregar correo real -->
           <span class="contact-value contact-value--todo">Por definir</span>
         </div>
-        <div class="contact-card contact-card--placeholder reveal-up" aria-label="LinkedIn — pendiente de agregar">
+        <div class="contact-card contact-card--placeholder" aria-label="LinkedIn — pendiente de agregar">
           <div class="contact-icon contact-icon--linkedin" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
           </div>
           <h3 class="contact-label">LinkedIn</h3>
-          <!-- TODO: completar información — agregar perfil LinkedIn -->
           <span class="contact-value contact-value--todo">Por definir</span>
         </div>
       </div>
@@ -606,6 +608,5 @@
     </div>
   </footer>
 
-  <script src="app.js"></script>
 </body>
 </html>
