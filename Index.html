@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juan Sebastian Rincón Farelo | Ingeniería de Sistemas</title>
+  <meta name="description" content="Portafolio profesional de Juan Sebastian Rincón Farelo. Estudiante de Ingeniería de Sistemas y Tecnólogo en Análisis y Desarrollo de Software del SENA, con experiencia práctica en Java, Python, desarrollo web, bases de datos y automatización." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Juan Sebastian Rincón Farelo | Ingeniería de Sistemas" />
+  <meta property="og:description" content="Portafolio profesional — Estudiante de Ingeniería de Sistemas y desarrollador de software en formación. Valledupar, Colombia." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://github.com/Sebasr0311" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body class="dark-mode">
+
+  <!-- NAVBAR -->
+  <header class="navbar" role="banner">
+    <div class="nav-container">
+      <a href="#inicio" class="nav-logo" aria-label="Inicio">
+        <span class="logo-bracket">&lt;</span>JSRF<span class="logo-bracket">/&gt;</span>
+      </a>
+      <nav class="nav-links" role="navigation" aria-label="Navegación principal" id="nav-menu">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#sobre-mi" class="nav-link">Sobre mí</a>
+        <a href="#formacion" class="nav-link">Formación</a>
+        <a href="#habilidades" class="nav-link">Habilidades</a>
+        <a href="#proyectos" class="nav-link">Proyectos</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema">
+          <span class="theme-icon theme-icon--moon" aria-hidden="true">🌙</span>
+          <span class="theme-icon theme-icon--sun" aria-hidden="true">☀️</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio" aria-label="Presentación">
+    <div class="hero-bg-grid" aria-hidden="true"></div>
+    <div class="hero-content">
+      <div class="hero-badge reveal-up">
+        <span class="badge-dot" aria-hidden="true"></span>
+        Disponible para colaborar
+      </div>
+      <h1 class="hero-name reveal-up">
+        Juan Sebastian<br />
+        <span class="hero-name-accent">Rincón Farelo</span>
+      </h1>
+      <p class="hero-role reveal-up">
+        <span class="typewriter" id="typewriter"></span>
+      </p>
+      <p class="hero-description reveal-up">
+        Estudiante de quinto semestre de Ingeniería de Sistemas y Tecnólogo en Análisis y Desarrollo
+        de Software del SENA, con experiencia práctica en desarrollo de software, desarrollo web,
+        bases de datos y automatización de procesos.
+      </p>
+      <div class="hero-cta reveal-up">
+        <a href="#proyectos" class="btn btn-primary">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h12"/></svg>
+          Ver proyectos
+        </a>
+        <a href="https://github.com/Sebasr0311" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          GitHub
+        </a>
+        <a href="#contacto" class="btn btn-ghost">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Contactarme
+        </a>
+      </div>
+      <div class="hero-location reveal-up">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" class="location-icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Valledupar, Cesar, Colombia
+      </div>
+    </div>
+    <div class="hero-scroll-indicator" aria-hidden="true"><div class="scroll-line"></div></div>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section class="section" id="sobre-mi" aria-labelledby="about-title">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-label">Acerca de</span>
+        <h2 class="section-title" id="about-title">Sobre mí</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal-left">
+          <p>Soy estudiante de quinto semestre de <strong>Ingeniería de Sistemas</strong> en la Universidad Popular del Cesar y <strong>Tecnólogo en Análisis y Desarrollo de Software</strong> del SENA. Mi formación me ha permitido desarrollar conocimientos sólidos en programación, desarrollo web, bases de datos y construcción de soluciones de software.</p>
+          <p>He trabajado en proyectos académicos y personales en los que he aplicado lenguajes como <strong>Java, Python y C++</strong>, además de tecnologías relacionadas con el desarrollo web, bases de datos relacionales (PL/SQL), APIs REST y automatización de procesos.</p>
+          <p>Actualmente continúo fortaleciendo mis conocimientos en ingeniería de software, arquitectura de aplicaciones, bases de datos e Inteligencia Artificial, con el objetivo de convertirme en un ingeniero de software capaz de construir soluciones de impacto real.</p>
+        </div>
+        <div class="about-cards reveal-right">
+          <div class="info-card">
+            <div class="info-card-icon" aria-hidden="true">🎓</div>
+            <div>
+              <div class="info-card-label">Formación actual</div>
+              <div class="info-card-value">Ing. de Sistemas — 5.° Semestre</div>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon" aria-hidden="true">📍</div>
+            <div>
+              <div class="info-card-label">Ubicación</div>
+              <div class="info-card-value">Valledupar, Cesar, Colombia</div>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon" aria-hidden="true">💼</div>
+            <div>
+              <div class="info-card-label">Tecnólogo SENA</div>
+              <div class="info-card-value">Análisis y Desarrollo de Software</div>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon" aria-hidden="true">🤖</div>
+            <div>
+              <div class="info-card-label">Interés principal</div>
+              <div class="info-card-value">Desarrollo de software · IA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMACIÓN ACADÉMICA -->
+  <section class="section section--alt" id="formacion" aria-labelledby="education-title">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-label">Educación</span>
+        <h2 class="section-title" id="education-title">Formación académica</h2>
+      </div>
+      <div class="timeline">
+
+        <article class="timeline-item reveal-left">
+          <div class="timeline-connector" aria-hidden="true">
+            <div class="timeline-dot timeline-dot--primary"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-card-header">
+              <div class="timeline-institution-badge" aria-hidden="true">🏛️</div>
+              <div>
+                <h3 class="timeline-degree">Ingeniería de Sistemas</h3>
+                <span class="timeline-institution">Universidad Popular del Cesar — Unicesar</span>
+              </div>
+            </div>
+            <div class="timeline-meta">
+              <span class="timeline-status timeline-status--active">En curso · 5.° Semestre</span>
+            </div>
+            <p class="timeline-description">Programa universitario enfocado en ingeniería de software, arquitectura de sistemas, bases de datos, redes de computadores, programación orientada a objetos y diseño de soluciones tecnológicas.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal-left">
+          <div class="timeline-connector" aria-hidden="true">
+            <div class="timeline-dot timeline-dot--secondary"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-card-header">
+              <div class="timeline-institution-badge" aria-hidden="true">🏫</div>
+              <div>
+                <h3 class="timeline-degree">Tecnología en Análisis y Desarrollo de Software</h3>
+                <span class="timeline-institution">SENA — Servicio Nacional de Aprendizaje</span>
+              </div>
+            </div>
+            <div class="timeline-meta">
+              <span class="timeline-status timeline-status--completed">Graduado · Tecnólogo</span>
+            </div>
+            <p class="timeline-description">Formación técnica y tecnológica en análisis, diseño y construcción de software, con énfasis en bases de datos, desarrollo web, programación orientada a objetos, gestión de proyectos de software y buenas prácticas de desarrollo.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal-left">
+          <div class="timeline-connector" aria-hidden="true">
+            <div class="timeline-dot timeline-dot--accent"></div>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-card-header">
+              <div class="timeline-institution-badge" aria-hidden="true">🤖</div>
+              <div>
+                <h3 class="timeline-degree">Curso de Inteligencia Artificial</h3>
+                <span class="timeline-institution">Talento Tech</span>
+              </div>
+            </div>
+            <div class="timeline-meta">
+              <span class="timeline-status timeline-status--completed">Completado · Nivel básico</span>
+            </div>
+            <p class="timeline-description">Curso de nivel básico orientado a los fundamentos de la Inteligencia Artificial, incluyendo conceptos de machine learning, procesamiento de datos y aplicaciones prácticas de IA.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section class="section" id="habilidades" aria-labelledby="skills-title">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-label">Tecnologías</span>
+        <h2 class="section-title" id="skills-title">Habilidades técnicas</h2>
+        <p class="section-subtitle">Tecnologías y herramientas que he utilizado en mis proyectos</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-category reveal-up">
+          <div class="skill-category-header">
+            <span class="skill-category-icon" aria-hidden="true">⚙️</span>
+            <h3 class="skill-category-title">Programación</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag skill-tag--java">Java</span>
+            <span class="skill-tag skill-tag--python">Python</span>
+            <span class="skill-tag skill-tag--cpp">C++</span>
+          </div>
+        </div>
+        <div class="skill-category reveal-up">
+          <div class="skill-category-header">
+            <span class="skill-category-icon" aria-hidden="true">🌐</span>
+            <h3 class="skill-category-title">Desarrollo Web</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">Frontend</span>
+            <span class="skill-tag">Backend</span>
+            <span class="skill-tag">APIs REST</span>
+          </div>
+        </div>
+        <div class="skill-category reveal-up">
+          <div class="skill-category-header">
+            <span class="skill-category-icon" aria-hidden="true">🗄️</span>
+            <h3 class="skill-category-title">Bases de datos</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag skill-tag--db">SQL</span>
+            <span class="skill-tag skill-tag--db">PL/SQL</span>
+            <span class="skill-tag skill-tag--db">Oracle</span>
+          </div>
+          <p class="skill-note">Verificado en GitHub: SAED, sistema-administracion-edificios, prueba_proyecto</p>
+        </div>
+        <div class="skill-category reveal-up">
+          <div class="skill-category-header">
+            <span class="skill-category-icon" aria-hidden="true">🛠️</span>
+            <h3 class="skill-category-title">Herramientas</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">Docker</span>
+          </div>
+        </div>
+        <div class="skill-category reveal-up">
+          <div class="skill-category-header">
+            <span class="skill-category-icon" aria-hidden="true">🤖</span>
+            <h3 class="skill-category-title">Inteligencia Artificial</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag skill-tag--ai">Fundamentos de IA</span>
+            <span class="skill-tag skill-tag--ai">Machine Learning (básico)</span>
+          </div>
+          <p class="skill-note">Conocimientos adquiridos mediante curso Talento Tech</p>
+        </div>
+        <div class="skill-category reveal-up">
+          <div class="skill-category-header">
+            <span class="skill-category-icon" aria-hidden="true">📐</span>
+            <h3 class="skill-category-title">Ingeniería de Software</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Diseño de sistemas</span>
+            <span class="skill-tag">Automatización</span>
+            <span class="skill-tag">POO</span>
+            <span class="skill-tag">Arquitectura de apps</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section class="section section--alt" id="proyectos" aria-labelledby="projects-title">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-label">Portafolio</span>
+        <h2 class="section-title" id="projects-title">Proyectos</h2>
+        <p class="section-subtitle">Proyectos reales extraídos de mi perfil de GitHub</p>
+      </div>
+      <div class="projects-grid">
+
+        <!-- SAED -->
+        <article class="project-card reveal-up">
+          <div class="project-card-header">
+            <div class="project-icon" aria-hidden="true">🏗️</div>
+            <div class="project-meta">
+              <span class="project-badge project-badge--featured">Destacado</span>
+              <span class="project-lang">Java · PL/SQL</span>
+            </div>
+          </div>
+          <h3 class="project-title">SAED</h3>
+          <p class="project-description">Sistema de mayor envergadura del portafolio. Desarrollado con Java y PL/SQL, con frontend en JavaScript, HTML y CSS, infraestructura Docker y PowerShell. Integra backend, base de datos relacional y cliente web.</p>
+          <div class="project-tags">
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">PL/SQL</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">Docker</span>
+          </div>
+          <a href="https://github.com/Sebasr0311/SAED" target="_blank" rel="noopener noreferrer" class="project-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            Ver repositorio
+          </a>
+        </article>
+
+        <!-- Sistema Administración Edificios -->
+        <article class="project-card reveal-up">
+          <div class="project-card-header">
+            <div class="project-icon" aria-hidden="true">🏢</div>
+            <div class="project-meta">
+              <span class="project-badge project-badge--featured">Destacado · Deploy activo</span>
+              <span class="project-lang">Full-Stack</span>
+            </div>
+          </div>
+          <h3 class="project-title">Sistema de Administración de Edificios</h3>
+          <p class="project-description">Sistema full-stack para la administración de edificios. Backend en Java con base de datos PL/SQL, frontend en JavaScript y HTML/CSS, TypeScript y Docker. Desplegado en Vercel.</p>
+          <div class="project-tags">
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">PL/SQL</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">HTML/CSS</span>
+            <span class="tech-tag">Docker</span>
+          </div>
+          <div class="project-links-row">
+            <a href="https://github.com/Sebasr0311/sistema-administracion-edificios" target="_blank" rel="noopener noreferrer" class="project-link">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              Repositorio
+            </a>
+            <a href="https://saed-frontend-ten.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link project-link--demo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Demo en vivo
+            </a>
+          </div>
+        </article>
+
+        <!-- prueba_proyecto -->
+        <article class="project-card reveal-up">
+          <div class="project-card-header">
+            <div class="project-icon" aria-hidden="true">⚡</div>
+            <div class="project-meta">
+              <span class="project-badge">Deploy activo</span>
+              <span class="project-lang">Full-Stack</span>
+            </div>
+          </div>
+          <h3 class="project-title">Proyecto Full-Stack (prueba_proyecto)</h3>
+          <p class="project-description">Proyecto full-stack con backend en Java, base de datos PL/SQL y frontend con HTML, CSS y JavaScript. Desplegado en Vercel, integrando múltiples capas de una aplicación web completa.</p>
+          <div class="project-tags">
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">PL/SQL</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+          </div>
+          <div class="project-links-row">
+            <a href="https://github.com/Sebasr0311/prueba_proyecto" target="_blank" rel="noopener noreferrer" class="project-link">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              Repositorio
+            </a>
+            <a href="https://prueba-proyecto-gamma.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link project-link--demo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Demo en vivo
+            </a>
+          </div>
+        </article>
+
+        <!-- Restaurante El Buen Sabor -->
+        <article class="project-card reveal-up">
+          <div class="project-card-header">
+            <div class="project-icon" aria-hidden="true">🍽️</div>
+            <div class="project-meta">
+              <span class="project-lang">Java</span>
+            </div>
+          </div>
+          <h3 class="project-title">Restaurante El Buen Sabor</h3>
+          <p class="project-description">Sistema de gestión para un restaurante desarrollado en Java. Orientado a la administración de pedidos, menú y operaciones internas del negocio, aplicando programación orientada a objetos.</p>
+          <div class="project-tags">
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">POO</span>
+          </div>
+          <a href="https://github.com/Sebasr0311/RestauranteElBuenSabor" target="_blank" rel="noopener noreferrer" class="project-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            Ver repositorio
+          </a>
+        </article>
+
+        <!-- Sistema Académico -->
+        <article class="project-card reveal-up">
+          <div class="project-card-header">
+            <div class="project-icon" aria-hidden="true">📚</div>
+            <div class="project-meta">
+              <span class="project-badge project-badge--team">Trabajo en equipo</span>
+              <span class="project-lang">Java</span>
+            </div>
+          </div>
+          <h3 class="project-title">Sistema Académico</h3>
+          <p class="project-description">Sistema de gestión académica desarrollado en equipo en Java. Aborda funcionalidades de gestión de estudiantes, materias y calificaciones, aplicando principios de POO y trabajo colaborativo con Git.</p>
+          <div class="project-tags">
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">POO</span>
+            <span class="tech-tag">Git</span>
+          </div>
+          <a href="https://github.com/Sebasr0311/SistemaAcademico" target="_blank" rel="noopener noreferrer" class="project-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            Ver repositorio
+          </a>
+        </article>
+
+        <!-- Sistema Biblioteca -->
+        <article class="project-card reveal-up">
+          <div class="project-card-header">
+            <div class="project-icon" aria-hidden="true">📖</div>
+            <div class="project-meta">
+              <span class="project-lang">Java</span>
+            </div>
+          </div>
+          <h3 class="project-title">Sistema Biblioteca</h3>
+          <p class="project-description">Sistema de gestión de biblioteca en Java. Control de préstamos, inventario de libros y administración de usuarios, aplicando estructuras de datos y programación orientada a objetos.</p>
+          <div class="project-tags">
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">POO</span>
+          </div>
+          <a href="https://github.com/Sebasr0311/SistemaBiblioteca" target="_blank" rel="noopener noreferrer" class="project-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            Ver repositorio
+          </a>
+        </article>
+
+        <!-- OndasProyecto -->
+        <article class="project-card reveal-up">
+          <div class="project-card-header">
+            <div class="project-icon" aria-hidden="true">🌊</div>
+            <div class="project-meta">
+              <span class="project-lang">JavaScript</span>
+            </div>
+          </div>
+          <h3 class="project-title">Ondas Proyecto</h3>
+          <p class="project-description">Proyecto desarrollado en JavaScript como parte de los trabajos prácticos orientados al desarrollo web front-end.</p>
+          <div class="project-tags">
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Web</span>
+          </div>
+          <a href="https://github.com/Sebasr0311/OndasProyecto" target="_blank" rel="noopener noreferrer" class="project-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            Ver repositorio
+          </a>
+        </article>
+
+      </div>
+
+      <div class="projects-more reveal-up">
+        <a href="https://github.com/Sebasr0311" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          Ver todos los proyectos en GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCIA EN PROYECTOS -->
+  <section class="section" id="experiencia" aria-labelledby="experience-title">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-label">Trayectoria</span>
+        <h2 class="section-title" id="experience-title">Experiencia en proyectos</h2>
+        <p class="section-subtitle">Mi experiencia práctica proviene del desarrollo de proyectos académicos y personales</p>
+      </div>
+      <div class="experience-grid">
+        <div class="experience-card reveal-up">
+          <div class="exp-icon" aria-hidden="true">🖥️</div>
+          <h3 class="exp-title">Desarrollo Full-Stack</h3>
+          <p class="exp-desc">Construcción de aplicaciones web completas con Java en el backend, PL/SQL para la capa de datos y HTML, CSS, JavaScript para el frontend. Proyectos con despliegue real en Vercel.</p>
+          <div class="exp-tags">
+            <span class="tech-tag">Java</span><span class="tech-tag">PL/SQL</span><span class="tech-tag">JavaScript</span><span class="tech-tag">HTML/CSS</span>
+          </div>
+        </div>
+        <div class="experience-card reveal-up">
+          <div class="exp-icon" aria-hidden="true">🗄️</div>
+          <h3 class="exp-title">Bases de datos relacionales</h3>
+          <p class="exp-desc">Diseño y administración de bases de datos relacionales con PL/SQL y SQL en múltiples proyectos. Creación de esquemas, procedimientos almacenados y consultas complejas.</p>
+          <div class="exp-tags">
+            <span class="tech-tag">SQL</span><span class="tech-tag">PL/SQL</span><span class="tech-tag">Oracle</span>
+          </div>
+        </div>
+        <div class="experience-card reveal-up">
+          <div class="exp-icon" aria-hidden="true">☕</div>
+          <h3 class="exp-title">Desarrollo orientado a objetos</h3>
+          <p class="exp-desc">Implementación de múltiples sistemas en Java (restaurante, biblioteca, sistema académico, full-stack), aplicando POO, patrones de diseño y arquitectura por capas.</p>
+          <div class="exp-tags">
+            <span class="tech-tag">Java</span><span class="tech-tag">POO</span><span class="tech-tag">Arquitectura</span>
+          </div>
+        </div>
+        <div class="experience-card reveal-up">
+          <div class="exp-icon" aria-hidden="true">🤝</div>
+          <h3 class="exp-title">Trabajo colaborativo</h3>
+          <p class="exp-desc">Participación en proyectos grupales con Git y GitHub para control de versiones, colaboración en equipo, gestión de ramas y resolución de conflictos en código.</p>
+          <div class="exp-tags">
+            <span class="tech-tag">Git</span><span class="tech-tag">GitHub</span><span class="tech-tag">Colaboración</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GITHUB CTA -->
+  <section class="section github-cta-section section--alt" aria-labelledby="github-cta-title">
+    <div class="container">
+      <div class="github-cta reveal-up">
+        <div class="github-cta-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        </div>
+        <h2 class="github-cta-title" id="github-cta-title">Mi código en GitHub</h2>
+        <p class="github-cta-text">Puedes conocer más sobre mi trabajo y los proyectos que he desarrollado visitando mi perfil de GitHub. Allí encontrarás el código fuente, la historia de commits y la evolución de cada proyecto.</p>
+        <a href="https://github.com/Sebasr0311" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          Visitar GitHub
+        </a>
+        <div class="github-username">@Sebasr0311</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="section" id="contacto" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-label">Contacto</span>
+        <h2 class="section-title" id="contact-title">Hablemos</h2>
+        <p class="section-subtitle">¿Tienes un proyecto o propuesta? Estoy disponible para colaborar.</p>
+      </div>
+      <div class="contact-grid">
+        <a href="https://github.com/Sebasr0311" target="_blank" rel="noopener noreferrer" class="contact-card reveal-up" aria-label="GitHub: Sebasr0311">
+          <div class="contact-icon contact-icon--github" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </div>
+          <h3 class="contact-label">GitHub</h3>
+          <span class="contact-value">@Sebasr0311</span>
+        </a>
+        <div class="contact-card contact-card--placeholder reveal-up" aria-label="Correo electrónico — pendiente de agregar">
+          <div class="contact-icon contact-icon--email" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <h3 class="contact-label">Correo electrónico</h3>
+          <!-- TODO: completar información — agregar correo real -->
+          <span class="contact-value contact-value--todo">Por definir</span>
+        </div>
+        <div class="contact-card contact-card--placeholder reveal-up" aria-label="LinkedIn — pendiente de agregar">
+          <div class="contact-icon contact-icon--linkedin" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <h3 class="contact-label">LinkedIn</h3>
+          <!-- TODO: completar información — agregar perfil LinkedIn -->
+          <span class="contact-value contact-value--todo">Por definir</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">
+          <span class="logo-bracket">&lt;</span>JSRF<span class="logo-bracket">/&gt;</span>
+        </span>
+        <p class="footer-text">Juan Sebastian Rincón Farelo · Valledupar, Colombia</p>
+        <a href="https://github.com/Sebasr0311" target="_blank" rel="noopener noreferrer" class="footer-github" aria-label="Perfil de GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
