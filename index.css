@@ -46,6 +46,21 @@ html {
   max-width: 620px;
 }
 
+/* ── 4. AVATAR (fotografía pendiente) ─────────────────────── */
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  background: #18181b;
+  color: #fff;
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
 /* Punto del badge "Disponible para colaborar" */
 .badge-dot {
   display: inline-block;
@@ -67,7 +82,7 @@ html {
   50% { opacity: 0; }
 }
 
-/* ── 4. TARJETAS: hover sutil ─────────────────────────────── */
+/* ── 5. TARJETAS: hover sutil ─────────────────────────────── */
 .card {
   transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
 }

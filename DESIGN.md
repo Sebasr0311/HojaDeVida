@@ -23,7 +23,13 @@ Bootstrap's default blue is replaced by zinc-900 via its CSS variables
 
 - **Grid**: Bootstrap `container` + `row`/`col` with `g-4` gutters. Cards use
   `h-100` + `d-flex flex-column` + `flex-grow-1` on descriptions for equal heights.
-- **Sections**: `py-5`; alternate sections use `bg-light`. Headings `text-center fw-bold`.
+- **Sections** (professor rubric): `py-5`; alternate sections use `bg-light`.
+  Headings `text-center fw-bold`. Section order: Hero → Información personal
+  (avatar with initials, contact list) → Perfil profesional → Formación académica
+  (with periods) → Habilidades (technical + personal) → Proyectos → Experiencia
+  laboral (honest "no formal experience" card + project practice) → Información
+  adicional (courses/certifications incl. Oxford B2, languages with progress bars)
+  → Datos de contacto (email mailto:, phone tel:, GitHub, LinkedIn placeholder).
 - **Navbar**: custom `sticky-top` header with `d-flex flex-column flex-md-row`
   utilities — links always visible, stack on mobile. No collapse, no hamburger,
   no JavaScript.
