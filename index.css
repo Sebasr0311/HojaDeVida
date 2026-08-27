@@ -40,6 +40,11 @@ html {
   scroll-padding-top: 72px; /* compensa el navbar fijo */
 }
 
+/* En mobile el navbar apilado es más alto: más espacio al navegar */
+@media (max-width: 768px) {
+  html { scroll-padding-top: 140px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
