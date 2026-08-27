@@ -1,6 +1,6 @@
-/* ============================================================
-   PORTFOLIO — Juan Sebastian Rincón Farelo
-   index.css — shadcn/ui design language (zinc, light) in pure CSS
+﻿/* ============================================================
+   PORTFOLIO â€” Juan Sebastian RincÃ³n Farelo
+   index.css â€” shadcn/ui design language (zinc, light) in pure CSS
    ============================================================ */
 
 /* ── 1. TOKENS (shadcn/ui zinc light) ─────────────────────── */
@@ -9,27 +9,33 @@
   --foreground:        hsl(240 10% 3.9%);
 
   --card:              hsl(0 0% 100%);
-  --card-foreground:   hsl(240 10% 3.9%);
 
   --primary:           hsl(240 5.9% 10%);
   --primary-foreground: hsl(0 0% 98%);
+  --primary-hover:     hsl(240 5.9% 20%);
 
   --secondary:         hsl(240 4.8% 95.9%);
   --secondary-foreground: hsl(240 5.9% 10%);
+  --secondary-hover:   var(--secondary-hover);
 
-  --muted:             hsl(240 4.8% 95.9%);
   --muted-foreground:  hsl(240 3.8% 40%);
 
   --accent:            hsl(240 4.8% 95.9%);
-  --accent-foreground: hsl(240 5.9% 10%);
 
   --border:            hsl(240 5.9% 90%);
+  --border-hover:      var(--border-hover);
   --input:             hsl(240 5.9% 90%);
   --ring:              hsl(240 5.9% 10%);
 
   --success:           hsl(160 84% 30%);
   --success-bg:        hsl(152 76% 95%);
   --success-border:    hsl(158 64% 80%);
+
+  --scrollbar:         hsl(240 5.9% 85%);
+  --scrollbar-hover:   hsl(240 5.9% 70%);
+  --scroll-line:       hsl(240 5.9% 80%);
+  --dot:               hsl(240 5.9% 82%);
+  --tint:              hsl(240 4.8% 95.9% / 0.7);
 
   --radius: 0.5rem;
   --radius-card: 0.75rem;
@@ -51,7 +57,6 @@
   /* Shadows (soft, offset, low-key) */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 12px -2px rgb(0 0 0 / 0.08);
-  --shadow-lg: 0 12px 32px -8px rgb(0 0 0 / 0.12);
 
   /* Transition */
   --transition: 150ms cubic-bezier(.4,0,.2,1);
@@ -72,10 +77,18 @@
 }
 
 @media (max-width: 768px) {
-  .menu-toggle-input:checked ~ .navbar .nav-links { transform: translateY(0); }
-  .menu-toggle-input:checked ~ .navbar .hamburger .ham-line:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-  .menu-toggle-input:checked ~ .navbar .hamburger .ham-line:nth-child(2) { opacity: 0; }
-  .menu-toggle-input:checked ~ .navbar .hamburger .ham-line:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+  .menu-toggle-input:checked ~ .navbar .nav-links {
+    transform: translateY(0);
+    visibility: visible;
+    transition: transform 250ms cubic-bezier(.4,0,.2,1), visibility 0s;
+  }
+  .menu-toggle-input:checked ~ .navbar .hamburger .ham-box .ham-line:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .menu-toggle-input:checked ~ .navbar .hamburger .ham-box .ham-line:nth-child(2) { opacity: 0; }
+  .menu-toggle-input:checked ~ .navbar .hamburger .ham-box .ham-line:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+  .menu-toggle-input:focus-visible ~ .navbar .hamburger {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
 }
 
 /* ── 3. RESET & BASE ──────────────────────────────────────── */
@@ -110,12 +123,12 @@ body {
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-  background: hsl(240 5.9% 85%);
+  background: var(--scrollbar);
   border-radius: 9999px;
   border: 2px solid var(--background);
 }
-::-webkit-scrollbar-thumb:hover { background: hsl(240 5.9% 70%); }
-* { scrollbar-width: thin; scrollbar-color: hsl(240 5.9% 85%) transparent; }
+::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-hover); }
+* { scrollbar-width: thin; scrollbar-color: var(--scrollbar) transparent; }
 
 a { color: inherit; text-decoration: none; }
 a:focus-visible,
@@ -201,14 +214,22 @@ strong { color: var(--foreground); font-weight: 600; }
 /* Hamburger (label for checkbox) */
 .hamburger {
   display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  padding: 0;
+}
+.ham-box {
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 24px;
   height: 18px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
 }
 .ham-line {
   display: block;
@@ -242,7 +263,7 @@ strong { color: var(--foreground); font-weight: 600; }
   background: var(--primary);
   color: var(--primary-foreground);
 }
-.btn-primary:hover { background: hsl(240 5.9% 20%); }
+.btn-primary:hover { background: var(--primary-hover); }
 
 .btn-outline {
   background: var(--background);
@@ -299,7 +320,7 @@ strong { color: var(--foreground); font-weight: 600; }
 .hero-tint {
   position: absolute;
   inset: 0;
-  background: radial-gradient(55% 45% at 50% 0%, hsl(240 4.8% 95.9% / 0.7), transparent 75%);
+  background: radial-gradient(55% 45% at 50% 0%, var(--tint), transparent 75%);
   pointer-events: none;
 }
 
@@ -338,7 +359,6 @@ strong { color: var(--foreground); font-weight: 600; }
   line-height: 1.05;
   color: var(--foreground);
 }
-.hero-name-accent { color: inherit; }
 
 .hero-role {
   font-size: clamp(1rem, 2.5vw, 1.15rem);
@@ -399,7 +419,7 @@ strong { color: var(--foreground); font-weight: 600; }
 .scroll-line {
   width: 1px;
   height: 48px;
-  background: linear-gradient(to bottom, hsl(240 5.9% 80%), transparent);
+  background: linear-gradient(to bottom, var(--scroll-line), transparent);
 }
 
 /* ── 9. ABOUT ─────────────────────────────────────────────── */
@@ -432,7 +452,7 @@ strong { color: var(--foreground); font-weight: 600; }
   transition: border-color var(--transition), box-shadow var(--transition);
 }
 .info-card:hover {
-  border-color: hsl(240 5.9% 75%);
+  border-color: var(--border-hover);
   box-shadow: var(--shadow-sm);
 }
 .info-card-icon {
@@ -483,7 +503,7 @@ strong { color: var(--foreground); font-weight: 600; }
 .timeline-dot {
   width: 12px; height: 12px;
   border-radius: 50%;
-  background: hsl(240 5.9% 82%);
+  background: var(--dot);
   flex-shrink: 0;
 }
 .timeline-dot--active { background: var(--success); }
@@ -505,7 +525,7 @@ strong { color: var(--foreground); font-weight: 600; }
   transition: border-color var(--transition), box-shadow var(--transition);
 }
 .timeline-card:hover {
-  border-color: hsl(240 5.9% 75%);
+  border-color: var(--border-hover);
   box-shadow: var(--shadow-sm);
 }
 .timeline-card-header {
@@ -571,7 +591,7 @@ strong { color: var(--foreground); font-weight: 600; }
   transition: border-color var(--transition), box-shadow var(--transition);
 }
 .skill-category:hover {
-  border-color: hsl(240 5.9% 75%);
+  border-color: var(--border-hover);
   box-shadow: var(--shadow-sm);
 }
 .skill-category-header {
@@ -641,7 +661,7 @@ strong { color: var(--foreground); font-weight: 600; }
   transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 .project-card:hover {
-  border-color: hsl(240 5.9% 75%);
+  border-color: var(--border-hover);
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
@@ -739,7 +759,7 @@ strong { color: var(--foreground); font-weight: 600; }
   background: var(--secondary);
   border-color: var(--border);
 }
-.project-link--demo:hover { background: hsl(240 4.8% 92%); }
+.project-link--demo:hover { background: var(--secondary-hover); }
 .project-links-row {
   display: flex;
   gap: var(--space-3);
@@ -766,7 +786,7 @@ strong { color: var(--foreground); font-weight: 600; }
   transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 .experience-card:hover {
-  border-color: hsl(240 5.9% 75%);
+  border-color: var(--border-hover);
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
@@ -821,7 +841,7 @@ strong { color: var(--foreground); font-weight: 600; }
   justify-content: center;
   transition: border-color var(--transition), box-shadow var(--transition);
 }
-.github-cta-icon:hover { border-color: hsl(240 5.9% 75%); box-shadow: var(--shadow-sm); }
+.github-cta-icon:hover { border-color: var(--border-hover); box-shadow: var(--shadow-sm); }
 .github-cta-icon svg { width: 32px; height: 32px; color: var(--foreground); }
 .github-cta-title {
   font-size: clamp(1.5rem, 4vw, 2rem);
@@ -864,7 +884,7 @@ strong { color: var(--foreground); font-weight: 600; }
   text-decoration: none;
 }
 .contact-card:hover {
-  border-color: hsl(240 5.9% 75%);
+  border-color: var(--border-hover);
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
@@ -933,7 +953,7 @@ strong { color: var(--foreground); font-weight: 600; }
 .footer-github svg { width: 18px; height: 18px; }
 .footer-github:hover {
   color: var(--foreground);
-  border-color: hsl(240 5.9% 75%);
+  border-color: var(--border-hover);
 }
 
 /* ── 17. RESPONSIVE ───────────────────────────────────────── */
@@ -949,8 +969,9 @@ strong { color: var(--foreground); font-weight: 600; }
     background: var(--background);
     border-bottom: 1px solid var(--border);
     gap: var(--space-1);
+    visibility: hidden;
     transform: translateY(-110%);
-    transition: transform 250ms cubic-bezier(.4,0,.2,1);
+    transition: transform 250ms cubic-bezier(.4,0,.2,1), visibility 0s linear 250ms;
     z-index: 999;
   }
   .nav-link {
@@ -985,15 +1006,4 @@ strong { color: var(--foreground); font-weight: 600; }
   .experience-grid { grid-template-columns: 1fr; }
   .project-links-row { flex-direction: column; }
   .timeline-item { grid-template-columns: 32px 1fr; }
-}
-
-/* ── 18. UTILITY ──────────────────────────────────────────── */
-.visually-hidden {
-  position: absolute;
-  width: 1px; height: 1px;
-  margin: -1px; padding: 0;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  white-space: nowrap;
-  border-width: 0;
 }

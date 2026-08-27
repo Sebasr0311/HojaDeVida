@@ -44,7 +44,9 @@ no gradient text, no neon. One radius token family, one typeface.
   `currentColor`. 40–44px secondary-tinted containers. Zero emoji.
 - **Timeline** — 12px dots (zinc-300 / success for active), 1px line, cards.
 - **Navbar** — fixed, white/85 + backdrop blur, 1px bottom border. Mobile: CSS
-  checkbox hack (`#menu-toggle`) slides a fixed column menu; hamburger animates to X.
+  checkbox hack (`#menu-toggle`) slides a fixed column menu; hamburger animates to X,
+  44×44px touch target, focus ring on `:focus-visible`. Closed menu is
+  `visibility: hidden` (removed from tab order).
 
 ## Motion
 
