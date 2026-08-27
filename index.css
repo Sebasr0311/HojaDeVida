@@ -11,6 +11,14 @@
   --bs-link-color: #18181b;
   --bs-link-hover-color: #3f3f46;
   --bs-link-color-rgb: 24, 24, 27;
+
+  /* text-secondary un poco más oscuro: contraste AA sobre bg-light */
+  --bs-secondary-rgb: 95, 103, 111;
+}
+
+/* Tarjeta placeholder (LinkedIn pendiente) */
+.border-dashed {
+  border-style: dashed !important;
 }
 
 /* Los botones de Bootstrap guardan sus colores en variables propias:
