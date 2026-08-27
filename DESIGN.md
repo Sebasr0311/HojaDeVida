@@ -1,71 +1,52 @@
 # DESIGN.md — HojaDeVida (Juan Sebastian Rincón Farelo)
 
-Visual system recorded from the built world. Pure HTML + CSS — no JavaScript.
+Visual system recorded from the built world. HTML + Bootstrap 5 CSS — no JavaScript
+(CDN CSS only, no bundle).
 
 ## World
 
-shadcn/ui "new-york" design language in zinc, light mode only. The site reads like a
-quiet engineering brief: white ground, near-black ink, hairline borders, no glow,
-no gradient text, no neon. One radius token family, one typeface.
+Bootstrap 5 components and utilities in a neutral zinc-ish palette. The site reads
+like a quiet engineering brief: white ground, near-black ink, hairline borders.
+Bootstrap's default blue is replaced by zinc-900 via its CSS variables
+(`--bs-primary`, `--bs-link-color`).
 
-## Tokens
+## Foundations
 
-| Token | Value |
-| --- | --- |
-| `--background` / `--card` | `hsl(0 0% 100%)` |
-| `--foreground` | `hsl(240 10% 3.9%)` (zinc-950) |
-| `--muted-foreground` | `hsl(240 3.8% 40%)` (zinc-600 — ≥4.5:1 on white) |
-| `--primary` | `hsl(240 5.9% 10%)` (zinc-900), foreground `hsl(0 0% 98%)` |
-| `--secondary` / `--accent` | `hsl(240 4.8% 95.9%)` (zinc-100) |
-| `--border` / `--input` | `hsl(240 5.9% 90%)` (zinc-200) |
-| `--ring` | `hsl(240 5.9% 10%)` |
-| `--success` | `hsl(160 84% 30%)` on `hsl(152 76% 95%)` (semantic only: active status) |
-| `--radius` | `0.5rem` controls · `0.75rem` cards |
-| Shadows | soft offset only: `0 1px 2px`, `0 4px 12px -2px`, `0 12px 32px -8px` |
+- **Framework**: Bootstrap 5.3.3 CSS + Bootstrap Icons 1.11.3 (both CDN, CSS only).
+- **Type**: Bootstrap system-ui stack. No external fonts.
+- **Colors**: Bootstrap tokens overridden in `index.css` (`:root`): primary =
+  zinc-900 `#18181b`. `text-secondary`/`text-bg-light` utilities carry the neutral
+  scale. Semantic success (badge "En curso") uses `--bs-success`.
+- **Radius**: Bootstrap defaults (cards 0.375rem, pills 50rem).
 
-## Typography
+## Layout
 
-- Inter (Google Fonts), weights 400–800. No mono (mono removed from labels; the
-  `<JSRF/>` logo keeps its bracket mark in Inter 700).
-- Display: `clamp(1.75rem, 4vw, 2.5rem)` section titles, `clamp(2.5rem, 7vw, 4.25rem)`
-  hero name, weight 800, tracking `-0.03em`.
-- Body: 1rem/1.65, measure 60–75ch. Muted text at zinc-600 for contrast.
+- **Grid**: Bootstrap `container` + `row`/`col` with `g-4` gutters. Cards use
+  `h-100` + `d-flex flex-column` + `flex-grow-1` on descriptions for equal heights.
+- **Sections**: `py-5`; alternate sections use `bg-light`. Headings `text-center fw-bold`.
+- **Navbar**: custom `sticky-top` header with `d-flex flex-column flex-md-row`
+  utilities — links always visible, stack on mobile. No collapse, no hamburger,
+  no JavaScript.
+- **Hero**: `d-flex align-items-center text-center`, `min-height: 90vh`, subtle
+  radial tint via `--bs-light-rgb`. One authored motion moment: blinking caret on
+  the role line (`::after`), disabled by `prefers-reduced-motion`.
 
 ## Components
 
-- **Buttons** — shadcn variants: `primary` (zinc-900 bg, white text), `outline`
-  (white, border-input), `ghost` (transparent). Height 2.5rem, radius 0.5rem, focus
-  ring 2px offset 2px.
-- **Cards** — border-only elevation (zinc-200), radius 0.75rem, hover: border
-  darkens + `shadow-md` + `translateY(-2px)`.
-- **Badges / tags / status chips** — secondary bg, border, radius 0.5rem. Active
-  status = success green chip (the only semantic color).
-- **Icons** — lucide-style inline SVGs, 24×24 viewBox, stroke 2, round caps/joins,
-  `currentColor`. 40–44px secondary-tinted containers. Zero emoji.
-- **Timeline** — 12px dots (zinc-300 / success for active), 1px line, cards.
-- **Navbar** — fixed, white/85 + backdrop blur, 1px bottom border. Mobile: CSS
-  checkbox hack (`#menu-toggle`) slides a fixed column menu; hamburger animates to X,
-  44×44px touch target, focus ring on `:focus-visible`. Closed menu is
-  `visibility: hidden` (removed from tab order).
-
-## Motion
-
-One authored moment: the blinking caret (`::after`) on the hero role line,
-`caret-blink 1.1s step-end infinite`. Everything else is static; hover states only.
-
-## Browser surfaces
-
-Selection (zinc-900 bg / white text), thin custom scrollbar in zinc tones,
-caret-color ring, focus-visible rings on all interactive elements.
-
-## Responsive
-
-- ≤768px: hamburger menu, single-column about grid, full-width buttons (max 280px),
-  reduced section padding.
-- ≤480px: single-column grids, 32px timeline gutter.
+- **Cards**: `card` + `card-body` with hover lift (`translateY(-2px)` + soft shadow)
+  defined in `index.css`.
+- **Badges**: `badge rounded-pill text-bg-light border` for tags and project
+  badges; `text-bg-success-subtle` for the active education status.
+- **Buttons**: Bootstrap variants — `btn-primary` (zinc via token), `btn-outline-dark`,
+  `btn-outline-secondary`, `btn-sm` in cards.
+- **Icons**: Bootstrap Icons classes (`bi bi-github`, `bi bi-mortarboard`, …),
+  sized with `fs-3`/`fs-5`/`display-6`, tinted `text-secondary`/`text-dark`.
 
 ## Constraints
 
-- No JavaScript (professor curriculum): all interactions are CSS-only.
+- **No JavaScript** (curriculum): all interactivity is Bootstrap CSS/utilities only.
+  No collapse, dropdown, or accordion components.
 - Content is factual and user-owned: names, projects, links, placeholders
   ("Por definir") must not be invented.
+- The dead Vercel demo link (`prueba-proyecto-gamma`) stays out until the
+  deployment is live again.

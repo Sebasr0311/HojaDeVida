@@ -15,143 +15,130 @@
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>" />
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons (solo CSS) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
 
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
 <!--
 THESIS: A portfolio that reads like a quiet engineering brief — nothing glows, nothing shouts; the work and the person carry the page.
-OWN-WORLD: shadcn/ui new-york in zinc — white ground, zinc-900 ink, hairline borders, one radius token, Inter throughout, lucide-style stroke icons.
+OWN-WORLD: Bootstrap 5 utilities and components in a neutral zinc palette; system-ui typeface; bootstrap-icons.
 STORY: A recruiter lands, reads the name and role in one breath, scans formation and projects, and leaves with a clear impression of a serious systems-engineering student.
-FIRST VIEWPORT: Centered name block on a white ground with a faint radial tint; role line with a blinking caret; three flat buttons; location line beneath.
-FORM: Refined incumbent structure with a pinned shadcn design language; no concept roll needed (user-pinned direction).
+FIRST VIEWPORT: Centered name block with a blinking caret; three flat buttons; location line beneath; sticky nav above.
+FORM: Bootstrap component structure, no JavaScript (CSS-only CDN), pinned by the user for class explanation.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
 -->
 
-  <!-- CSS-only control: hamburger menu (mobile) -->
-  <input type="checkbox" id="menu-toggle" class="menu-toggle-input" aria-label="Abrir menú" />
-
-  <!-- NAVBAR -->
-  <header class="navbar" role="banner">
-    <div class="nav-container">
-      <a href="#inicio" class="nav-logo" aria-label="Inicio">
-        <span class="logo-bracket">&lt;</span>JSRF<span class="logo-bracket">/&gt;</span>
+  <!-- NAVBAR (sin JavaScript: los links siempre visibles) -->
+  <header class="sticky-top bg-body border-bottom">
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between py-2 gap-2">
+      <a href="#inicio" class="fw-bold text-dark text-decoration-none">
+        <span class="text-secondary">&lt;</span>JSRF<span class="text-secondary">/&gt;</span>
       </a>
-      <nav class="nav-links" role="navigation" aria-label="Navegación principal">
-        <a href="#inicio" class="nav-link">Inicio</a>
-        <a href="#sobre-mi" class="nav-link">Sobre mí</a>
-        <a href="#formacion" class="nav-link">Formación</a>
-        <a href="#habilidades" class="nav-link">Habilidades</a>
-        <a href="#proyectos" class="nav-link">Proyectos</a>
-        <a href="#experiencia" class="nav-link">Experiencia</a>
-        <a href="#contacto" class="nav-link">Contacto</a>
+      <nav class="d-flex flex-wrap justify-content-center gap-1" aria-label="Navegación principal">
+        <a href="#inicio" class="nav-link px-2">Inicio</a>
+        <a href="#sobre-mi" class="nav-link px-2">Sobre mí</a>
+        <a href="#formacion" class="nav-link px-2">Formación</a>
+        <a href="#habilidades" class="nav-link px-2">Habilidades</a>
+        <a href="#proyectos" class="nav-link px-2">Proyectos</a>
+        <a href="#experiencia" class="nav-link px-2">Experiencia</a>
+        <a href="#contacto" class="nav-link px-2">Contacto</a>
       </nav>
-      <label for="menu-toggle" class="hamburger" aria-label="Abrir menú">
-        <span class="ham-box">
-          <span class="ham-line"></span>
-          <span class="ham-line"></span>
-          <span class="ham-line"></span>
-        </span>
-      </label>
     </div>
   </header>
 
   <main>
 
   <!-- HERO -->
-  <section class="hero" id="inicio" aria-label="Presentación">
-    <div class="hero-tint" aria-hidden="true"></div>
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="badge-dot" aria-hidden="true"></span>
+  <section class="hero d-flex align-items-center text-center" id="inicio" aria-label="Presentación">
+    <div class="container py-5">
+      <span class="badge rounded-pill text-bg-light border mb-4">
+        <span class="badge-dot me-1"></span>
         Disponible para colaborar
-      </div>
-      <h1 class="hero-name">
+      </span>
+      <h1 class="display-3 fw-bold text-dark">
         Juan Sebastian<br />
         Rincón Farelo
       </h1>
-      <p class="hero-role">
+      <p class="hero-role fs-5 text-secondary">
         Estudiante de Ingeniería de Sistemas | Desarrollador de Software en formación
       </p>
-      <p class="hero-description">
+      <p class="text-secondary mx-auto hero-description">
         Estudiante de quinto semestre de Ingeniería de Sistemas y Tecnólogo en Análisis y Desarrollo
         de Software del SENA, con experiencia práctica en desarrollo de software, desarrollo web,
         bases de datos y automatización de procesos.
       </p>
-      <div class="hero-cta">
-        <a href="#proyectos" class="btn btn-primary">
-          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h12"/></svg>
-          Ver proyectos
+      <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+        <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
+        <a href="https://github.com/Sebasr0311" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">
+          <i class="bi bi-github me-1"></i>GitHub
         </a>
-        <a href="https://github.com/Sebasr0311" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-          <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          GitHub
-        </a>
-        <a href="#contacto" class="btn btn-ghost">
-          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          Contactarme
-        </a>
+        <a href="#contacto" class="btn btn-outline-secondary">Contactarme</a>
       </div>
-      <div class="hero-location">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="location-icon"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-        Valledupar, Cesar, Colombia
-      </div>
+      <p class="text-secondary mt-4 small">
+        <i class="bi bi-geo-alt me-1"></i>Valledupar, Cesar, Colombia
+      </p>
     </div>
-    <div class="hero-scroll-indicator" aria-hidden="true"><div class="scroll-line"></div></div>
   </section>
 
   <!-- SOBRE MÍ -->
-  <section class="section" id="sobre-mi" aria-labelledby="about-title">
+  <section class="py-5" id="sobre-mi" aria-labelledby="about-title">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" id="about-title">Sobre mí</h2>
-      </div>
-      <div class="about-grid">
-        <div class="about-text">
-          <p>Soy estudiante de quinto semestre de <strong>Ingeniería de Sistemas</strong> en la Universidad Popular del Cesar y <strong>Tecnólogo en Análisis y Desarrollo de Software</strong> del SENA. Mi formación me ha permitido desarrollar conocimientos sólidos en programación, desarrollo web, bases de datos y construcción de soluciones de software.</p>
-          <p>He trabajado en proyectos académicos y personales en los que he aplicado lenguajes como <strong>Java, Python y C++</strong>, además de tecnologías relacionadas con el desarrollo web, bases de datos relacionales (PL/SQL), APIs REST y automatización de procesos.</p>
-          <p>Actualmente continúo fortaleciendo mis conocimientos en ingeniería de software, arquitectura de aplicaciones, bases de datos e Inteligencia Artificial, con el objetivo de convertirme en un ingeniero de software capaz de construir soluciones de impacto real.</p>
+      <h2 class="text-center fw-bold mb-4" id="about-title">Sobre mí</h2>
+      <div class="row g-4 align-items-start">
+        <div class="col-md-6">
+          <p class="text-secondary">Soy estudiante de quinto semestre de <strong class="text-dark">Ingeniería de Sistemas</strong> en la Universidad Popular del Cesar y <strong class="text-dark">Tecnólogo en Análisis y Desarrollo de Software</strong> del SENA. Mi formación me ha permitido desarrollar conocimientos sólidos en programación, desarrollo web, bases de datos y construcción de soluciones de software.</p>
+          <p class="text-secondary">He trabajado en proyectos académicos y personales en los que he aplicado lenguajes como <strong class="text-dark">Java, Python y C++</strong>, además de tecnologías relacionadas con el desarrollo web, bases de datos relacionales (PL/SQL), APIs REST y automatización de procesos.</p>
+          <p class="text-secondary">Actualmente continúo fortaleciendo mis conocimientos en ingeniería de software, arquitectura de aplicaciones, bases de datos e Inteligencia Artificial, con el objetivo de convertirme en un ingeniero de software capaz de construir soluciones de impacto real.</p>
         </div>
-        <div class="about-cards">
-          <div class="info-card">
-            <div class="info-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+        <div class="col-md-6">
+          <div class="row row-cols-1 row-cols-sm-2 g-3">
+            <div class="col">
+              <div class="card h-100">
+                <div class="card-body d-flex align-items-center gap-3">
+                  <i class="bi bi-mortarboard fs-3 text-secondary"></i>
+                  <div>
+                    <div class="small text-secondary text-uppercase">Formación actual</div>
+                    <div class="fw-semibold">Ing. de Sistemas — 5.° Semestre</div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div>
-              <div class="info-card-label">Formación actual</div>
-              <div class="info-card-value">Ing. de Sistemas — 5.° Semestre</div>
+            <div class="col">
+              <div class="card h-100">
+                <div class="card-body d-flex align-items-center gap-3">
+                  <i class="bi bi-geo-alt fs-3 text-secondary"></i>
+                  <div>
+                    <div class="small text-secondary text-uppercase">Ubicación</div>
+                    <div class="fw-semibold">Valledupar, Cesar</div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="info-card">
-            <div class="info-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div class="col">
+              <div class="card h-100">
+                <div class="card-body d-flex align-items-center gap-3">
+                  <i class="bi bi-briefcase fs-3 text-secondary"></i>
+                  <div>
+                    <div class="small text-secondary text-uppercase">Tecnólogo SENA</div>
+                    <div class="fw-semibold">Análisis y Desarrollo de Software</div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div>
-              <div class="info-card-label">Ubicación</div>
-              <div class="info-card-value">Valledupar, Cesar, Colombia</div>
-            </div>
-          </div>
-          <div class="info-card">
-            <div class="info-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg>
-            </div>
-            <div>
-              <div class="info-card-label">Tecnólogo SENA</div>
-              <div class="info-card-value">Análisis y Desarrollo de Software</div>
-            </div>
-          </div>
-          <div class="info-card">
-            <div class="info-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
-            </div>
-            <div>
-              <div class="info-card-label">Interés principal</div>
-              <div class="info-card-value">Desarrollo de software · IA</div>
+            <div class="col">
+              <div class="card h-100">
+                <div class="card-body d-flex align-items-center gap-3">
+                  <i class="bi bi-robot fs-3 text-secondary"></i>
+                  <div>
+                    <div class="small text-secondary text-uppercase">Interés principal</div>
+                    <div class="fw-semibold">Desarrollo de software · IA</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -160,172 +147,141 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   </section>
 
   <!-- FORMACIÓN ACADÉMICA -->
-  <section class="section section--alt" id="formacion" aria-labelledby="education-title">
+  <section class="py-5 bg-light" id="formacion" aria-labelledby="education-title">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" id="education-title">Formación académica</h2>
-      </div>
-      <div class="timeline">
-
-        <article class="timeline-item">
-          <div class="timeline-connector" aria-hidden="true">
-            <div class="timeline-dot timeline-dot--active"></div>
-            <div class="timeline-line"></div>
-          </div>
-          <div class="timeline-card">
-            <div class="timeline-card-header">
-              <div class="timeline-institution-badge" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 10h.01"/><path d="M15 10h.01"/></svg>
-              </div>
-              <div>
-                <h3 class="timeline-degree">Ingeniería de Sistemas</h3>
-                <span class="timeline-institution">Universidad Popular del Cesar — Unicesar</span>
+      <h2 class="text-center fw-bold mb-4" id="education-title">Formación académica</h2>
+      <div class="row row-cols-1 g-4 justify-content-center">
+        <div class="col-md-8">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="d-flex align-items-start gap-3">
+                <i class="bi bi-bank fs-3 text-secondary"></i>
+                <div>
+                  <h3 class="h5 fw-semibold mb-0">Ingeniería de Sistemas</h3>
+                  <div class="text-secondary mb-2">Universidad Popular del Cesar — Unicesar</div>
+                  <span class="badge rounded-pill text-bg-success-subtle border mb-3">En curso · 5.° Semestre</span>
+                  <p class="text-secondary mb-0">Programa universitario enfocado en ingeniería de software, arquitectura de sistemas, bases de datos, redes de computadores, programación orientada a objetos y diseño de soluciones tecnológicas.</p>
+                </div>
               </div>
             </div>
-            <div class="timeline-meta">
-              <span class="timeline-status timeline-status--active">En curso · 5.° Semestre</span>
-            </div>
-            <p class="timeline-description">Programa universitario enfocado en ingeniería de software, arquitectura de sistemas, bases de datos, redes de computadores, programación orientada a objetos y diseño de soluciones tecnológicas.</p>
           </div>
-        </article>
-
-        <article class="timeline-item">
-          <div class="timeline-connector" aria-hidden="true">
-            <div class="timeline-dot"></div>
-            <div class="timeline-line"></div>
-          </div>
-          <div class="timeline-card">
-            <div class="timeline-card-header">
-              <div class="timeline-institution-badge" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 10 8-6 8 6"/><path d="M6 8v10"/><path d="M18 8v10"/><path d="M4 18h16"/></svg>
-              </div>
-              <div>
-                <h3 class="timeline-degree">Tecnología en Análisis y Desarrollo de Software</h3>
-                <span class="timeline-institution">SENA — Servicio Nacional de Aprendizaje</span>
+        </div>
+        <div class="col-md-8">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="d-flex align-items-start gap-3">
+                <i class="bi bi-mortarboard fs-3 text-secondary"></i>
+                <div>
+                  <h3 class="h5 fw-semibold mb-0">Tecnología en Análisis y Desarrollo de Software</h3>
+                  <div class="text-secondary mb-2">SENA — Servicio Nacional de Aprendizaje</div>
+                  <span class="badge rounded-pill text-bg-secondary border mb-3">Graduado · Tecnólogo</span>
+                  <p class="text-secondary mb-0">Formación técnica y tecnológica en análisis, diseño y construcción de software, con énfasis en bases de datos, desarrollo web, programación orientada a objetos, gestión de proyectos de software y buenas prácticas de desarrollo.</p>
+                </div>
               </div>
             </div>
-            <div class="timeline-meta">
-              <span class="timeline-status">Graduado · Tecnólogo</span>
-            </div>
-            <p class="timeline-description">Formación técnica y tecnológica en análisis, diseño y construcción de software, con énfasis en bases de datos, desarrollo web, programación orientada a objetos, gestión de proyectos de software y buenas prácticas de desarrollo.</p>
           </div>
-        </article>
-
-        <article class="timeline-item">
-          <div class="timeline-connector" aria-hidden="true">
-            <div class="timeline-dot"></div>
-          </div>
-          <div class="timeline-card">
-            <div class="timeline-card-header">
-              <div class="timeline-institution-badge" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
-              </div>
-              <div>
-                <h3 class="timeline-degree">Curso de Inteligencia Artificial</h3>
-                <span class="timeline-institution">Talento Tech</span>
+        </div>
+        <div class="col-md-8">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="d-flex align-items-start gap-3">
+                <i class="bi bi-robot fs-3 text-secondary"></i>
+                <div>
+                  <h3 class="h5 fw-semibold mb-0">Curso de Inteligencia Artificial</h3>
+                  <div class="text-secondary mb-2">Talento Tech</div>
+                  <span class="badge rounded-pill text-bg-secondary border mb-3">Completado · Nivel básico</span>
+                  <p class="text-secondary mb-0">Curso de nivel básico orientado a los fundamentos de la Inteligencia Artificial, incluyendo conceptos de machine learning, procesamiento de datos y aplicaciones prácticas de IA.</p>
+                </div>
               </div>
             </div>
-            <div class="timeline-meta">
-              <span class="timeline-status">Completado · Nivel básico</span>
-            </div>
-            <p class="timeline-description">Curso de nivel básico orientado a los fundamentos de la Inteligencia Artificial, incluyendo conceptos de machine learning, procesamiento de datos y aplicaciones prácticas de IA.</p>
           </div>
-        </article>
-
+        </div>
       </div>
     </div>
   </section>
 
   <!-- HABILIDADES -->
-  <section class="section" id="habilidades" aria-labelledby="skills-title">
+  <section class="py-5" id="habilidades" aria-labelledby="skills-title">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" id="skills-title">Habilidades técnicas</h2>
-        <p class="section-subtitle">Tecnologías y herramientas que he utilizado en mis proyectos</p>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <div class="skill-category-header">
-            <span class="skill-category-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
-            </span>
-            <h3 class="skill-category-title">Programación</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Java</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">C++</span>
+      <h2 class="text-center fw-bold mb-2" id="skills-title">Habilidades técnicas</h2>
+      <p class="text-center text-secondary mb-4">Tecnologías y herramientas que he utilizado en mis proyectos</p>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="h6 fw-semibold mb-3"><i class="bi bi-gear me-2 text-secondary"></i>Programación</h3>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge rounded-pill text-bg-light border">Java</span>
+                <span class="badge rounded-pill text-bg-light border">Python</span>
+                <span class="badge rounded-pill text-bg-light border">C++</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="skill-category">
-          <div class="skill-category-header">
-            <span class="skill-category-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-            </span>
-            <h3 class="skill-category-title">Desarrollo Web</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">HTML</span>
-            <span class="skill-tag">CSS</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">TypeScript</span>
-            <span class="skill-tag">Frontend</span>
-            <span class="skill-tag">Backend</span>
-            <span class="skill-tag">APIs REST</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <div class="skill-category-header">
-            <span class="skill-category-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
-            </span>
-            <h3 class="skill-category-title">Bases de datos</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">SQL</span>
-            <span class="skill-tag">PL/SQL</span>
-            <span class="skill-tag">Oracle</span>
-          </div>
-          <p class="skill-note">Verificado en GitHub: SAED, sistema-administracion-edificios, prueba_proyecto</p>
-        </div>
-        <div class="skill-category">
-          <div class="skill-category-header">
-            <span class="skill-category-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-            </span>
-            <h3 class="skill-category-title">Herramientas</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">GitHub</span>
-            <span class="skill-tag">Docker</span>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="h6 fw-semibold mb-3"><i class="bi bi-globe2 me-2 text-secondary"></i>Desarrollo Web</h3>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge rounded-pill text-bg-light border">HTML</span>
+                <span class="badge rounded-pill text-bg-light border">CSS</span>
+                <span class="badge rounded-pill text-bg-light border">JavaScript</span>
+                <span class="badge rounded-pill text-bg-light border">TypeScript</span>
+                <span class="badge rounded-pill text-bg-light border">Frontend</span>
+                <span class="badge rounded-pill text-bg-light border">Backend</span>
+                <span class="badge rounded-pill text-bg-light border">APIs REST</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="skill-category">
-          <div class="skill-category-header">
-            <span class="skill-category-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
-            </span>
-            <h3 class="skill-category-title">Inteligencia Artificial</h3>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="h6 fw-semibold mb-3"><i class="bi bi-database me-2 text-secondary"></i>Bases de datos</h3>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge rounded-pill text-bg-light border">SQL</span>
+                <span class="badge rounded-pill text-bg-light border">PL/SQL</span>
+                <span class="badge rounded-pill text-bg-light border">Oracle</span>
+              </div>
+              <p class="small text-secondary fst-italic mt-3 mb-0">Verificado en GitHub: SAED, sistema-administracion-edificios, prueba_proyecto</p>
+            </div>
           </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Fundamentos de IA</span>
-            <span class="skill-tag">Machine Learning (básico)</span>
-          </div>
-          <p class="skill-note">Conocimientos adquiridos mediante curso Talento Tech</p>
         </div>
-        <div class="skill-category">
-          <div class="skill-category-header">
-            <span class="skill-category-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></svg>
-            </span>
-            <h3 class="skill-category-title">Ingeniería de Software</h3>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="h6 fw-semibold mb-3"><i class="bi bi-wrench-adjustable me-2 text-secondary"></i>Herramientas</h3>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge rounded-pill text-bg-light border">Git</span>
+                <span class="badge rounded-pill text-bg-light border">GitHub</span>
+                <span class="badge rounded-pill text-bg-light border">Docker</span>
+              </div>
+            </div>
           </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Diseño de sistemas</span>
-            <span class="skill-tag">Automatización</span>
-            <span class="skill-tag">POO</span>
-            <span class="skill-tag">Arquitectura de apps</span>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="h6 fw-semibold mb-3"><i class="bi bi-robot me-2 text-secondary"></i>Inteligencia Artificial</h3>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge rounded-pill text-bg-light border">Fundamentos de IA</span>
+                <span class="badge rounded-pill text-bg-light border">Machine Learning (básico)</span>
+              </div>
+              <p class="small text-secondary fst-italic mt-3 mb-0">Conocimientos adquiridos mediante curso Talento Tech</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="h6 fw-semibold mb-3"><i class="bi bi-rulers me-2 text-secondary"></i>Ingeniería de Software</h3>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge rounded-pill text-bg-light border">Diseño de sistemas</span>
+                <span class="badge rounded-pill text-bg-light border">Automatización</span>
+                <span class="badge rounded-pill text-bg-light border">POO</span>
+                <span class="badge rounded-pill text-bg-light border">Arquitectura de apps</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -333,250 +289,245 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   </section>
 
   <!-- PROYECTOS -->
-  <section class="section section--alt" id="proyectos" aria-labelledby="projects-title">
+  <section class="py-5 bg-light" id="proyectos" aria-labelledby="projects-title">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" id="projects-title">Proyectos</h2>
-        <p class="section-subtitle">Proyectos reales extraídos de mi perfil de GitHub</p>
-      </div>
-      <div class="projects-grid">
+      <h2 class="text-center fw-bold mb-2" id="projects-title">Proyectos</h2>
+      <p class="text-center text-secondary mb-4">Proyectos reales extraídos de mi perfil de GitHub</p>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
-        <!-- SAED -->
-        <article class="project-card">
-          <div class="project-card-header">
-            <div class="project-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
-            </div>
-            <div class="project-meta">
-              <span class="project-badge">Destacado</span>
-              <span class="project-lang">Java · PL/SQL</span>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <i class="bi bi-building fs-3 text-secondary"></i>
+                <div class="text-end">
+                  <span class="badge rounded-pill text-bg-light border">Destacado</span>
+                  <div class="small text-secondary mt-1">Java · PL/SQL</div>
+                </div>
+              </div>
+              <h3 class="h5 fw-semibold">SAED</h3>
+              <p class="text-secondary small flex-grow-1">Sistema de mayor envergadura del portafolio. Desarrollado con Java y PL/SQL, con frontend en JavaScript, HTML y CSS, infraestructura Docker y PowerShell. Integra backend, base de datos relacional y cliente web.</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="badge rounded-pill text-bg-light border">Java</span>
+                <span class="badge rounded-pill text-bg-light border">PL/SQL</span>
+                <span class="badge rounded-pill text-bg-light border">JavaScript</span>
+                <span class="badge rounded-pill text-bg-light border">TypeScript</span>
+                <span class="badge rounded-pill text-bg-light border">HTML</span>
+                <span class="badge rounded-pill text-bg-light border">CSS</span>
+                <span class="badge rounded-pill text-bg-light border">Docker</span>
+              </div>
+              <a href="https://github.com/Sebasr0311/SAED" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-dark align-self-start">Ver repositorio</a>
             </div>
           </div>
-          <h3 class="project-title">SAED</h3>
-          <p class="project-description">Sistema de mayor envergadura del portafolio. Desarrollado con Java y PL/SQL, con frontend en JavaScript, HTML y CSS, infraestructura Docker y PowerShell. Integra backend, base de datos relacional y cliente web.</p>
-          <div class="project-tags">
-            <span class="tech-tag">Java</span>
-            <span class="tech-tag">PL/SQL</span>
-            <span class="tech-tag">JavaScript</span>
-            <span class="tech-tag">TypeScript</span>
-            <span class="tech-tag">HTML</span>
-            <span class="tech-tag">CSS</span>
-            <span class="tech-tag">Docker</span>
-          </div>
-          <a href="https://github.com/Sebasr0311/SAED" target="_blank" rel="noopener noreferrer" class="project-link">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-            Ver repositorio
-          </a>
-        </article>
+        </div>
 
-        <!-- Sistema Administración Edificios -->
-        <article class="project-card">
-          <div class="project-card-header">
-            <div class="project-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 10h.01"/><path d="M15 10h.01"/></svg>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <i class="bi bi-buildings fs-3 text-secondary"></i>
+                <div class="text-end">
+                  <span class="badge rounded-pill text-bg-light border">Destacado · Deploy activo</span>
+                  <div class="small text-secondary mt-1">Full-Stack</div>
+                </div>
+              </div>
+              <h3 class="h5 fw-semibold">Sistema de Administración de Edificios</h3>
+              <p class="text-secondary small flex-grow-1">Sistema full-stack para la administración de edificios. Backend en Java con base de datos PL/SQL, frontend en JavaScript y HTML/CSS, TypeScript y Docker. Desplegado en Vercel.</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="badge rounded-pill text-bg-light border">Java</span>
+                <span class="badge rounded-pill text-bg-light border">PL/SQL</span>
+                <span class="badge rounded-pill text-bg-light border">JavaScript</span>
+                <span class="badge rounded-pill text-bg-light border">TypeScript</span>
+                <span class="badge rounded-pill text-bg-light border">HTML/CSS</span>
+                <span class="badge rounded-pill text-bg-light border">Docker</span>
+              </div>
+              <div class="d-flex gap-2">
+                <a href="https://github.com/Sebasr0311/sistema-administracion-edificios" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-dark">Repositorio</a>
+                <a href="https://saed-frontend-ten.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-secondary">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>Demo
+                </a>
+              </div>
             </div>
-            <div class="project-meta">
-              <span class="project-badge">Destacado · Deploy activo</span>
-              <span class="project-lang">Full-Stack</span>
-            </div>
           </div>
-          <h3 class="project-title">Sistema de Administración de Edificios</h3>
-          <p class="project-description">Sistema full-stack para la administración de edificios. Backend en Java con base de datos PL/SQL, frontend en JavaScript y HTML/CSS, TypeScript y Docker. Desplegado en Vercel.</p>
-          <div class="project-tags">
-            <span class="tech-tag">Java</span>
-            <span class="tech-tag">PL/SQL</span>
-            <span class="tech-tag">JavaScript</span>
-            <span class="tech-tag">TypeScript</span>
-            <span class="tech-tag">HTML/CSS</span>
-            <span class="tech-tag">Docker</span>
-          </div>
-          <div class="project-links-row">
-            <a href="https://github.com/Sebasr0311/sistema-administracion-edificios" target="_blank" rel="noopener noreferrer" class="project-link">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-              Repositorio
-            </a>
-            <a href="https://saed-frontend-ten.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link project-link--demo">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              Demo en vivo
-            </a>
-          </div>
-        </article>
+        </div>
 
-        <!-- prueba_proyecto -->
-        <article class="project-card">
-          <div class="project-card-header">
-            <div class="project-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <i class="bi bi-lightning-charge fs-3 text-secondary"></i>
+                <div class="text-end">
+                  <span class="badge rounded-pill text-bg-light border">Deploy activo</span>
+                  <div class="small text-secondary mt-1">Full-Stack</div>
+                </div>
+              </div>
+              <h3 class="h5 fw-semibold">Proyecto Full-Stack (prueba_proyecto)</h3>
+              <p class="text-secondary small flex-grow-1">Proyecto full-stack con backend en Java, base de datos PL/SQL y frontend con HTML, CSS y JavaScript. Desplegado en Vercel, integrando múltiples capas de una aplicación web completa.</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="badge rounded-pill text-bg-light border">Java</span>
+                <span class="badge rounded-pill text-bg-light border">PL/SQL</span>
+                <span class="badge rounded-pill text-bg-light border">JavaScript</span>
+                <span class="badge rounded-pill text-bg-light border">HTML</span>
+                <span class="badge rounded-pill text-bg-light border">CSS</span>
+              </div>
+              <a href="https://github.com/Sebasr0311/prueba_proyecto" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-dark align-self-start">Repositorio</a>
             </div>
-            <div class="project-meta">
-              <span class="project-badge">Deploy activo</span>
-              <span class="project-lang">Full-Stack</span>
-            </div>
           </div>
-          <h3 class="project-title">Proyecto Full-Stack (prueba_proyecto)</h3>
-          <p class="project-description">Proyecto full-stack con backend en Java, base de datos PL/SQL y frontend con HTML, CSS y JavaScript. Desplegado en Vercel, integrando múltiples capas de una aplicación web completa.</p>
-          <div class="project-tags">
-            <span class="tech-tag">Java</span>
-            <span class="tech-tag">PL/SQL</span>
-            <span class="tech-tag">JavaScript</span>
-            <span class="tech-tag">HTML</span>
-            <span class="tech-tag">CSS</span>
-          </div>
-          <div class="project-links-row">
-            <a href="https://github.com/Sebasr0311/prueba_proyecto" target="_blank" rel="noopener noreferrer" class="project-link">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-              Repositorio
-            </a>
-          </div>
-        </article>
+        </div>
 
-        <!-- Restaurante El Buen Sabor -->
-        <article class="project-card">
-          <div class="project-card-header">
-            <div class="project-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
-            </div>
-            <div class="project-meta">
-              <span class="project-lang">Java</span>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <i class="bi bi-egg-fried fs-3 text-secondary"></i>
+                <div class="text-end">
+                  <div class="small text-secondary mt-1">Java</div>
+                </div>
+              </div>
+              <h3 class="h5 fw-semibold">Restaurante El Buen Sabor</h3>
+              <p class="text-secondary small flex-grow-1">Sistema de gestión para un restaurante desarrollado en Java. Orientado a la administración de pedidos, menú y operaciones internas del negocio, aplicando programación orientada a objetos.</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="badge rounded-pill text-bg-light border">Java</span>
+                <span class="badge rounded-pill text-bg-light border">POO</span>
+              </div>
+              <a href="https://github.com/Sebasr0311/RestauranteElBuenSabor" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-dark align-self-start">Ver repositorio</a>
             </div>
           </div>
-          <h3 class="project-title">Restaurante El Buen Sabor</h3>
-          <p class="project-description">Sistema de gestión para un restaurante desarrollado en Java. Orientado a la administración de pedidos, menú y operaciones internas del negocio, aplicando programación orientada a objetos.</p>
-          <div class="project-tags">
-            <span class="tech-tag">Java</span>
-            <span class="tech-tag">POO</span>
-          </div>
-          <a href="https://github.com/Sebasr0311/RestauranteElBuenSabor" target="_blank" rel="noopener noreferrer" class="project-link">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-            Ver repositorio
-          </a>
-        </article>
+        </div>
 
-        <!-- Sistema Académico -->
-        <article class="project-card">
-          <div class="project-card-header">
-            <div class="project-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
-            </div>
-            <div class="project-meta">
-              <span class="project-badge">Trabajo en equipo</span>
-              <span class="project-lang">Java</span>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <i class="bi bi-book fs-3 text-secondary"></i>
+                <div class="text-end">
+                  <span class="badge rounded-pill text-bg-light border">Trabajo en equipo</span>
+                  <div class="small text-secondary mt-1">Java</div>
+                </div>
+              </div>
+              <h3 class="h5 fw-semibold">Sistema Académico</h3>
+              <p class="text-secondary small flex-grow-1">Sistema de gestión académica desarrollado en equipo en Java. Aborda funcionalidades de gestión de estudiantes, materias y calificaciones, aplicando principios de POO y trabajo colaborativo con Git.</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="badge rounded-pill text-bg-light border">Java</span>
+                <span class="badge rounded-pill text-bg-light border">POO</span>
+                <span class="badge rounded-pill text-bg-light border">Git</span>
+              </div>
+              <a href="https://github.com/Sebasr0311/SistemaAcademico" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-dark align-self-start">Ver repositorio</a>
             </div>
           </div>
-          <h3 class="project-title">Sistema Académico</h3>
-          <p class="project-description">Sistema de gestión académica desarrollado en equipo en Java. Aborda funcionalidades de gestión de estudiantes, materias y calificaciones, aplicando principios de POO y trabajo colaborativo con Git.</p>
-          <div class="project-tags">
-            <span class="tech-tag">Java</span>
-            <span class="tech-tag">POO</span>
-            <span class="tech-tag">Git</span>
-          </div>
-          <a href="https://github.com/Sebasr0311/SistemaAcademico" target="_blank" rel="noopener noreferrer" class="project-link">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-            Ver repositorio
-          </a>
-        </article>
+        </div>
 
-        <!-- Sistema Biblioteca -->
-        <article class="project-card">
-          <div class="project-card-header">
-            <div class="project-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 6 4 14"/><path d="M12 6v14"/><path d="M8 8v12"/><path d="M4 4v16"/></svg>
-            </div>
-            <div class="project-meta">
-              <span class="project-lang">Java</span>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <i class="bi bi-book-half fs-3 text-secondary"></i>
+                <div class="text-end">
+                  <div class="small text-secondary mt-1">Java</div>
+                </div>
+              </div>
+              <h3 class="h5 fw-semibold">Sistema Biblioteca</h3>
+              <p class="text-secondary small flex-grow-1">Sistema de gestión de biblioteca en Java. Control de préstamos, inventario de libros y administración de usuarios, aplicando estructuras de datos y programación orientada a objetos.</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="badge rounded-pill text-bg-light border">Java</span>
+                <span class="badge rounded-pill text-bg-light border">POO</span>
+              </div>
+              <a href="https://github.com/Sebasr0311/SistemaBiblioteca" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-dark align-self-start">Ver repositorio</a>
             </div>
           </div>
-          <h3 class="project-title">Sistema Biblioteca</h3>
-          <p class="project-description">Sistema de gestión de biblioteca en Java. Control de préstamos, inventario de libros y administración de usuarios, aplicando estructuras de datos y programación orientada a objetos.</p>
-          <div class="project-tags">
-            <span class="tech-tag">Java</span>
-            <span class="tech-tag">POO</span>
-          </div>
-          <a href="https://github.com/Sebasr0311/SistemaBiblioteca" target="_blank" rel="noopener noreferrer" class="project-link">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-            Ver repositorio
-          </a>
-        </article>
+        </div>
 
-        <!-- OndasProyecto -->
-        <article class="project-card">
-          <div class="project-card-header">
-            <div class="project-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg>
-            </div>
-            <div class="project-meta">
-              <span class="project-lang">JavaScript</span>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <i class="bi bi-water fs-3 text-secondary"></i>
+                <div class="text-end">
+                  <div class="small text-secondary mt-1">JavaScript</div>
+                </div>
+              </div>
+              <h3 class="h5 fw-semibold">Ondas Proyecto</h3>
+              <p class="text-secondary small flex-grow-1">Proyecto desarrollado en JavaScript como parte de los trabajos prácticos orientados al desarrollo web front-end.</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="badge rounded-pill text-bg-light border">JavaScript</span>
+                <span class="badge rounded-pill text-bg-light border">Web</span>
+              </div>
+              <a href="https://github.com/Sebasr0311/OndasProyecto" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-dark align-self-start">Ver repositorio</a>
             </div>
           </div>
-          <h3 class="project-title">Ondas Proyecto</h3>
-          <p class="project-description">Proyecto desarrollado en JavaScript como parte de los trabajos prácticos orientados al desarrollo web front-end.</p>
-          <div class="project-tags">
-            <span class="tech-tag">JavaScript</span>
-            <span class="tech-tag">Web</span>
-          </div>
-          <a href="https://github.com/Sebasr0311/OndasProyecto" target="_blank" rel="noopener noreferrer" class="project-link">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-            Ver repositorio
-          </a>
-        </article>
+        </div>
 
       </div>
 
-      <div class="projects-more">
-        <a href="https://github.com/Sebasr0311" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-          <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          Ver todos los proyectos en GitHub
+      <div class="text-center mt-4">
+        <a href="https://github.com/Sebasr0311" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">
+          <i class="bi bi-github me-1"></i>Ver todos los proyectos en GitHub
         </a>
       </div>
     </div>
   </section>
 
   <!-- EXPERIENCIA EN PROYECTOS -->
-  <section class="section" id="experiencia" aria-labelledby="experience-title">
+  <section class="py-5" id="experiencia" aria-labelledby="experience-title">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" id="experience-title">Experiencia en proyectos</h2>
-        <p class="section-subtitle">Mi experiencia práctica proviene del desarrollo de proyectos académicos y personales</p>
-      </div>
-      <div class="experience-grid">
-        <div class="experience-card">
-          <div class="exp-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
-          </div>
-          <h3 class="exp-title">Desarrollo Full-Stack</h3>
-          <p class="exp-desc">Construcción de aplicaciones web completas con Java en el backend, PL/SQL para la capa de datos y HTML, CSS, JavaScript para el frontend. Proyectos con despliegue real en Vercel.</p>
-          <div class="exp-tags">
-            <span class="tech-tag">Java</span><span class="tech-tag">PL/SQL</span><span class="tech-tag">JavaScript</span><span class="tech-tag">HTML/CSS</span>
-          </div>
-        </div>
-        <div class="experience-card">
-          <div class="exp-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
-          </div>
-          <h3 class="exp-title">Bases de datos relacionales</h3>
-          <p class="exp-desc">Diseño y administración de bases de datos relacionales con PL/SQL y SQL en múltiples proyectos. Creación de esquemas, procedimientos almacenados y consultas complejas.</p>
-          <div class="exp-tags">
-            <span class="tech-tag">SQL</span><span class="tech-tag">PL/SQL</span><span class="tech-tag">Oracle</span>
+      <h2 class="text-center fw-bold mb-2" id="experience-title">Experiencia en proyectos</h2>
+      <p class="text-center text-secondary mb-4">Mi experiencia práctica proviene del desarrollo de proyectos académicos y personales</p>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <i class="bi bi-display fs-3 text-secondary"></i>
+              <h3 class="h6 fw-semibold mt-3">Desarrollo Full-Stack</h3>
+              <p class="text-secondary small">Construcción de aplicaciones web completas con Java en el backend, PL/SQL para la capa de datos y HTML, CSS, JavaScript para el frontend. Proyectos con despliegue real en Vercel.</p>
+              <div class="d-flex flex-wrap gap-1">
+                <span class="badge rounded-pill text-bg-light border">Java</span>
+                <span class="badge rounded-pill text-bg-light border">PL/SQL</span>
+                <span class="badge rounded-pill text-bg-light border">JavaScript</span>
+                <span class="badge rounded-pill text-bg-light border">HTML/CSS</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="experience-card">
-          <div class="exp-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/></svg>
-          </div>
-          <h3 class="exp-title">Desarrollo orientado a objetos</h3>
-          <p class="exp-desc">Implementación de múltiples sistemas en Java (restaurante, biblioteca, sistema académico, full-stack), aplicando POO, patrones de diseño y arquitectura por capas.</p>
-          <div class="exp-tags">
-            <span class="tech-tag">Java</span><span class="tech-tag">POO</span><span class="tech-tag">Arquitectura</span>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <i class="bi bi-database fs-3 text-secondary"></i>
+              <h3 class="h6 fw-semibold mt-3">Bases de datos relacionales</h3>
+              <p class="text-secondary small">Diseño y administración de bases de datos relacionales con PL/SQL y SQL en múltiples proyectos. Creación de esquemas, procedimientos almacenados y consultas complejas.</p>
+              <div class="d-flex flex-wrap gap-1">
+                <span class="badge rounded-pill text-bg-light border">SQL</span>
+                <span class="badge rounded-pill text-bg-light border">PL/SQL</span>
+                <span class="badge rounded-pill text-bg-light border">Oracle</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="experience-card">
-          <div class="exp-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <i class="bi bi-cup-hot fs-3 text-secondary"></i>
+              <h3 class="h6 fw-semibold mt-3">Desarrollo orientado a objetos</h3>
+              <p class="text-secondary small">Implementación de múltiples sistemas en Java (restaurante, biblioteca, sistema académico, full-stack), aplicando POO, patrones de diseño y arquitectura por capas.</p>
+              <div class="d-flex flex-wrap gap-1">
+                <span class="badge rounded-pill text-bg-light border">Java</span>
+                <span class="badge rounded-pill text-bg-light border">POO</span>
+                <span class="badge rounded-pill text-bg-light border">Arquitectura</span>
+              </div>
+            </div>
           </div>
-          <h3 class="exp-title">Trabajo colaborativo</h3>
-          <p class="exp-desc">Participación en proyectos grupales con Git y GitHub para control de versiones, colaboración en equipo, gestión de ramas y resolución de conflictos en código.</p>
-          <div class="exp-tags">
-            <span class="tech-tag">Git</span><span class="tech-tag">GitHub</span><span class="tech-tag">Colaboración</span>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <i class="bi bi-people fs-3 text-secondary"></i>
+              <h3 class="h6 fw-semibold mt-3">Trabajo colaborativo</h3>
+              <p class="text-secondary small">Participación en proyectos grupales con Git y GitHub para control de versiones, colaboración en equipo, gestión de ramas y resolución de conflictos en código.</p>
+              <div class="d-flex flex-wrap gap-1">
+                <span class="badge rounded-pill text-bg-light border">Git</span>
+                <span class="badge rounded-pill text-bg-light border">GitHub</span>
+                <span class="badge rounded-pill text-bg-light border">Colaboración</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -584,51 +535,48 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   </section>
 
   <!-- GITHUB CTA -->
-  <section class="section github-cta-section section--alt" aria-labelledby="github-cta-title">
+  <section class="py-5 bg-light text-center" aria-labelledby="github-cta-title">
     <div class="container">
-      <div class="github-cta">
-        <div class="github-cta-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-        </div>
-        <h2 class="github-cta-title" id="github-cta-title">Mi código en GitHub</h2>
-        <p class="github-cta-text">Puedes conocer más sobre mi trabajo y los proyectos que he desarrollado visitando mi perfil de GitHub. Allí encontrarás el código fuente, la historia de commits y la evolución de cada proyecto.</p>
-        <a href="https://github.com/Sebasr0311" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-          <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          Visitar GitHub
-        </a>
-        <div class="github-username">@Sebasr0311</div>
-      </div>
+      <i class="bi bi-github display-4 text-dark"></i>
+      <h2 class="fw-bold mt-3" id="github-cta-title">Mi código en GitHub</h2>
+      <p class="text-secondary mx-auto" style="max-width: 520px;">Puedes conocer más sobre mi trabajo y los proyectos que he desarrollado visitando mi perfil de GitHub. Allí encontrarás el código fuente, la historia de commits y la evolución de cada proyecto.</p>
+      <a href="https://github.com/Sebasr0311" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visitar GitHub</a>
+      <div class="text-secondary small mt-2">@Sebasr0311</div>
     </div>
   </section>
 
   <!-- CONTACTO -->
-  <section class="section" id="contacto" aria-labelledby="contact-title">
+  <section class="py-5" id="contacto" aria-labelledby="contact-title">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" id="contact-title">Hablemos</h2>
-        <p class="section-subtitle">¿Tienes un proyecto o propuesta? Estoy disponible para colaborar.</p>
-      </div>
-      <div class="contact-grid">
-        <a href="https://github.com/Sebasr0311" target="_blank" rel="noopener noreferrer" class="contact-card" aria-label="GitHub: Sebasr0311">
-          <div class="contact-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          </div>
-          <h3 class="contact-label">GitHub</h3>
-          <span class="contact-value">@Sebasr0311</span>
-        </a>
-        <div class="contact-card contact-card--placeholder" aria-label="Correo electrónico — pendiente de agregar">
-          <div class="contact-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          </div>
-          <h3 class="contact-label">Correo electrónico</h3>
-          <span class="contact-value contact-value--todo">Por definir</span>
+      <h2 class="text-center fw-bold mb-2" id="contact-title">Hablemos</h2>
+      <p class="text-center text-secondary mb-4">¿Tienes un proyecto o propuesta? Estoy disponible para colaborar.</p>
+      <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+        <div class="col" style="max-width: 300px;">
+          <a href="https://github.com/Sebasr0311" target="_blank" rel="noopener noreferrer" class="card h-100 text-decoration-none">
+            <div class="card-body text-center">
+              <i class="bi bi-github display-6 text-dark"></i>
+              <h3 class="h6 fw-semibold mt-3 text-dark">GitHub</h3>
+              <div class="text-secondary small">@Sebasr0311</div>
+            </div>
+          </a>
         </div>
-        <div class="contact-card contact-card--placeholder" aria-label="LinkedIn — pendiente de agregar">
-          <div class="contact-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+        <div class="col" style="max-width: 300px;">
+          <div class="card h-100 opacity-50">
+            <div class="card-body text-center">
+              <i class="bi bi-envelope display-6 text-dark"></i>
+              <h3 class="h6 fw-semibold mt-3">Correo electrónico</h3>
+              <div class="text-secondary small fst-italic">Por definir</div>
+            </div>
           </div>
-          <h3 class="contact-label">LinkedIn</h3>
-          <span class="contact-value contact-value--todo">Por definir</span>
+        </div>
+        <div class="col" style="max-width: 300px;">
+          <div class="card h-100 opacity-50">
+            <div class="card-body text-center">
+              <i class="bi bi-linkedin display-6 text-dark"></i>
+              <h3 class="h6 fw-semibold mt-3">LinkedIn</h3>
+              <div class="text-secondary small fst-italic">Por definir</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -637,17 +585,15 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   </main>
 
   <!-- FOOTER -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-inner">
-        <span class="footer-logo">
-          <span class="logo-bracket">&lt;</span>JSRF<span class="logo-bracket">/&gt;</span>
-        </span>
-        <p class="footer-text">Juan Sebastian Rincón Farelo · Valledupar, Colombia</p>
-        <a href="https://github.com/Sebasr0311" target="_blank" rel="noopener noreferrer" class="footer-github" aria-label="Perfil de GitHub">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-        </a>
-      </div>
+  <footer class="bg-light border-top py-4" role="contentinfo">
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-2">
+      <span class="fw-bold">
+        <span class="text-secondary">&lt;</span>JSRF<span class="text-secondary">/&gt;</span>
+      </span>
+      <p class="text-secondary small mb-0">Juan Sebastian Rincón Farelo · Valledupar, Colombia</p>
+      <a href="https://github.com/Sebasr0311" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-secondary" aria-label="Perfil de GitHub">
+        <i class="bi bi-github"></i>
+      </a>
     </div>
   </footer>
 
