@@ -1,2 +1,9 @@
-# Review artifacts (impeccable design process)
-.impeccable/
+node_modules/
+.next/
+out/
+.env*
+!.env.example
+.DS_Store
+*.log
+*.tsbuildinfo
+.vercel/
