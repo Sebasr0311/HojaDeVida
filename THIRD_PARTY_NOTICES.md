@@ -1,9 +1,11 @@
 # Créditos de terceros
 
-## React Bits — SpotlightCard
+## React Bits — SpotlightCard y Carousel
 
 - Proyecto: React Bits por David Haz.
-- Fuente del patrón adaptado: https://github.com/DavidHDev/react-bits/blob/main/src/content/Components/SpotlightCard/SpotlightCard.jsx
+- Fuentes adaptadas:
+  - `SpotlightCard`: https://github.com/DavidHDev/react-bits/blob/main/src/content/Components/SpotlightCard/SpotlightCard.jsx
+  - `Carousel`: https://reactbits.dev/r/Carousel-TS-TW.json
 - Sitio oficial: https://reactbits.dev/
 - Licencia publicada por el proyecto: MIT + Commons Clause. Revisa los términos actuales antes de redistribuir el código.
 

@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { SpotlightCard } from "@/components/react-bits/spotlight-card";
+import { ProjectCarousel, type CarouselSlide } from "@/components/react-bits/carousel";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
@@ -38,6 +39,7 @@ type Project = {
   headline: string;
   description: string;
   details: string;
+  highlights: string[];
   role: string;
   status: string;
   category: ProjectCategory;
@@ -45,7 +47,7 @@ type Project = {
   url?: string;
   github?: string;
   icon: React.ElementType;
-  motif: string;
+  slides: CarouselSlide[];
   featured?: boolean;
 };
 
@@ -54,73 +56,312 @@ const PROJECTS: Project[] = [
     index: "01",
     name: "SAED",
     headline: "Un sistema para administrar toda una comunidad.",
-    description: "Plataforma SaaS de gestión residencial concebida para centralizar administración, finanzas y operaciones diarias de una copropiedad.",
-    details: "Diseño y desarrollo individual: residentes y roles, contratos, pagos, visitas QR, notificaciones multicanal y asignación automatizada de parqueaderos. Aún sin prueba piloto.",
+    description: "Plataforma SaaS multi-tenant de gestión residencial concebida para centralizar administración, finanzas, portería y convivencia de edificios y conjuntos cerrados.",
+    details: "Diseño y desarrollo individual de extremo a extremo: aislamiento por copropiedad en Oracle Autonomous Database (VPD / Row-Level Security), 6 alcances RBAC, pasarela Wompi, pases QR para visitantes, custodia de paquetería con PIN y sorteo auditable de parqueaderos. Aún sin prueba piloto.",
+    highlights: [
+      "Aislamiento multi-tenant nativo con Oracle VPD (SAED_CTX) y bitácora inmutable AUDITORIA_LOG",
+      "6 portales operativos por rol: Superadmin, Organización, Administración, Portería, Residente Titular y Convivencia",
+      "Recaudo digital con Wompi, validación QR en garita y alertas transaccionales por correo"
+    ],
     role: "Diseño y desarrollo Full Stack individual",
     status: "En desarrollo",
     category: "saas",
-    stack: ["Java 17", "React", "Oracle SQL", "Tailwind", "OCI"],
+    stack: ["Java 17", "Spring Boot 3.2", "React 18", "Oracle ATP (VPD/RLS)", "Tailwind CSS", "Wompi", "OCI"],
     url: "https://www.saed.app/",
     github: "https://github.com/Sebasr0311/SAED",
     icon: Layers3,
-    motif: "saed",
     featured: true,
+    slides: [
+      {
+        id: "saed-landing",
+        src: `${BASE_PATH}/projects/saed/01-landing-hero.png`,
+        alt: "Landing page de SAED 2.0 mostrando propuesta de valor para copropiedades",
+        tag: "Plataforma SaaS · Landing",
+        title: "Ecosistema digital para copropiedades",
+        caption: "Presentación comercial de SAED 2.0 con acceso unificado para administración, portería y residentes."
+      },
+      {
+        id: "saed-cartera",
+        src: `${BASE_PATH}/projects/saed/02-admin-cartera.png`,
+        alt: "Módulo administrativo de Cartera y Cobros en SAED 2.0",
+        tag: "Administración · Finanzas",
+        title: "Gestión de cartera y cobros por unidad",
+        caption: "Control detallado de obligaciones ordinarias y extraordinarias con filtros por estado, torre e inmueble."
+      },
+      {
+        id: "saed-pagos",
+        src: `${BASE_PATH}/projects/saed/03-admin-pagos.png`,
+        alt: "Bandeja de gestión y conciliación de pagos en SAED 2.0",
+        tag: "Finanzas · Conciliación",
+        title: "Bandeja de pagos y aprobación de soportes",
+        caption: "Conciliación de recaudos en línea vía Wompi y validación administrativa de comprobantes manuales."
+      },
+      {
+        id: "saed-residente",
+        src: `${BASE_PATH}/projects/saed/04-residente-dashboard.png`,
+        alt: "Panel del Residente Titular con estado de cartera y pase QR",
+        tag: "Autoservicio · Residente",
+        title: "Portal del Residente Titular",
+        caption: "Consulta de estado de cuenta, pago directo en línea, generación de invitaciones QR y reservas de zonas comunes."
+      },
+      {
+        id: "saed-porteria",
+        src: `${BASE_PATH}/projects/saed/05-porteria-qr.png`,
+        alt: "Escáner y validación de código QR en consola de portería SAED 2.0",
+        tag: "Seguridad · Portería",
+        title: "Control de acceso y validación QR en garita",
+        caption: "Verificación instantánea de pases temporales de visitantes con registro automático de ingreso en bitácora."
+      }
+    ]
   },
   {
     index: "02",
     name: "Alexa Beauty",
     headline: "De un emprendimiento a una tienda operativa.",
-    description: "Comercio electrónico con catálogo, tonos y variantes, inventario y pedidos por WhatsApp.",
-    details: "Desarrollo Full Stack realizado de manera individual. La plataforma está en uso y el emprendimiento ya ha recibido pedidos reales.",
+    description: "Plataforma de comercio electrónico y punto de venta físico (POS) con catálogo de cosméticos, selector de tonos, control de inventario y checkout asistido por WhatsApp.",
+    details: "Desarrollo Full Stack realizado de manera individual. La plataforma está en uso comercial activo, gestionando inventario real, alertas de stock mínimo, ventas de mostrador y pedidos reales.",
+    highlights: [
+      "Catálogo público optimizado con selector rápido de tonos, búsqueda reactiva y reserva de inventario",
+      "Módulo POS de mostrador para registrar ventas físicas y descontar existencias al instante",
+      "Panel administrativo con autenticación JWT HttpOnly, kardex de movimientos e importación Excel"
+    ],
     role: "Full Stack · Proyecto comercial",
     status: "En uso comercial",
     category: "comercial",
-    stack: ["Java", "Spring Boot", "React", "PostgreSQL", "Supabase"],
+    stack: ["Java 21 LTS", "Spring Boot 3.4", "Next.js 15", "React 19", "TypeScript", "PostgreSQL 16", "Supabase"],
     url: "https://alexa-beauty.vercel.app/",
     github: "https://github.com/Sebasr0311/Alexa-Beauty",
     icon: ShoppingBag,
-    motif: "alexa",
+    slides: [
+      {
+        id: "alexa-hero",
+        src: `${BASE_PATH}/projects/alexa/01-hero-storefront.png`,
+        alt: "Página principal de la tienda en línea Alexa Beauty",
+        tag: "E-Commerce · Storefront",
+        title: "Tienda oficial en producción",
+        caption: "Experiencia de compra diseñada para dispositivos móviles y escritorio con asesoría directa por WhatsApp."
+      },
+      {
+        id: "alexa-catalogo",
+        src: `${BASE_PATH}/projects/alexa/02-catalogo-productos.png`,
+        alt: "Catálogo de productos de Alexa Beauty con variantes de tono y precios en COP",
+        tag: "Catálogo · Variantes",
+        title: "Catálogo con variantes de tono y stock en vivo",
+        caption: "Visualización de muestras de color (swatches), existencias por producto y alertas de últimas unidades."
+      },
+      {
+        id: "alexa-tonos",
+        src: `${BASE_PATH}/projects/alexa/04-selector-tonos.png`,
+        alt: "Modal de selección rápida de tono para Forever Gloss en Alexa Beauty",
+        tag: "UX · Selector de Tono",
+        title: "Selección rápida de tono sin salir del catálogo",
+        caption: "Modal interactivo que valida disponibilidad por variante antes de agregar el artículo al carrito."
+      },
+      {
+        id: "alexa-detalle",
+        src: `${BASE_PATH}/projects/alexa/03-detalle-producto.png`,
+        alt: "Ficha detallada de producto Forever Gloss en Alexa Beauty",
+        tag: "Producto · Checkout",
+        title: "Ficha comercial de producto",
+        caption: "Galería de imágenes en Supabase Storage, SKU autoritativo, selector de cantidad y consulta directa."
+      },
+      {
+        id: "alexa-pos",
+        src: `${BASE_PATH}/projects/alexa/05-admin-pos.png`,
+        alt: "Módulo administrativo POS para registrar venta en punto físico",
+        tag: "Admin · Punto Físico POS",
+        title: "Registro de ventas en punto físico (POS)",
+        caption: "Buscador rápido de artículos con foto, tono y precio para descontar stock y actualizar ganancias al instante."
+      },
+      {
+        id: "alexa-admin",
+        src: `${BASE_PATH}/projects/alexa/06-panel-admin.png`,
+        alt: "Panel administrativo de Alexa Beauty con resumen de pedidos e inventario",
+        tag: "Backoffice · Gestión",
+        title: "Panel de control y seguimiento de pedidos",
+        caption: "Administración centralizada de pedidos por confirmar, alertas de stock bajo, kardex y carga por Excel."
+      }
+    ]
   },
   {
     index: "03",
     name: "MediTraje",
     headline: "Tecnología para ordenar la atención médica.",
-    description: "Sistema de triaje hospitalario y gestión de citas médicas de principio a fin.",
-    details: "Agendamiento, notificaciones de cita y cancelación por correo, confirmación de asistencia en consultorio y clasificación de prioridades de atención.",
-    role: "Proyecto de software",
+    description: "Plataforma clínica integral para orientación de triaje hospitalario, agendamiento médico sin colisiones, historia clínica inmutable y prescripción digital.",
+    details: "Implementa un motor determinista de 42 reglas clínicas (Niveles I–V con corte inmediato a Línea 123), bloqueo transaccional de citas, doble factor TOTP (RFC 6238) y 13 triggers PL/SQL en Oracle Cloud ATP para garantizar la inmutabilidad clínica.",
+    highlights: [
+      "Motor puro de triaje con 42 reglas clínicas y activación automática de protocolo de urgencias Nivel I",
+      "Inmutabilidad clínica en Oracle ATP mediante 13 triggers PL/SQL, enmiendas cronológicas y snapshot farmacológico",
+      "Seguridad asistencial con Argon2id, MFA TOTP, protocolo de emergencia Break-Glass y carné QR"
+    ],
+    role: "Arquitectura y desarrollo Full Stack",
     status: "Demo publicada",
     category: "salud",
-    stack: ["Aplicación web", "Citas", "Notificaciones", "Flujos clínicos"],
+    stack: ["Java 21", "Spring Boot 3.3", "Oracle Cloud ATP", "PL/SQL", "Flyway", "TOTP MFA", "Vanilla JS"],
     url: "https://meditraje.vercel.app/",
     github: "https://github.com/Sebasr0311/MediTraje",
     icon: HeartPulse,
-    motif: "meditraje",
+    slides: [
+      {
+        id: "meditraje-hero",
+        src: `${BASE_PATH}/projects/meditraje/01-landing-hero.png`,
+        alt: "Portal principal de MediTriaje 2.0 con vista previa de flujo clínico",
+        tag: "Salud Digital · Portal",
+        title: "Atención médica oportuna y triaje inteligente",
+        caption: " Resumen asistencial con orientación de prioridad, asignación de turno sin colisiones y receta digital sellada."
+      },
+      {
+        id: "meditraje-simulador",
+        src: `${BASE_PATH}/projects/meditraje/02-simulador-triaje.png`,
+        alt: "Simulador interactivo del motor de triaje y tarjeta de receta con snapshot farmacológico",
+        tag: "Motor Clínico · 42 Reglas",
+        title: "Simulador de triaje y snapshot farmacológico",
+        caption: "Clasificación determinista según síntoma, duración e intensidad, junto a recetas con congelamiento histórico."
+      },
+      {
+        id: "meditraje-emergencia",
+        src: `${BASE_PATH}/projects/meditraje/03-corte-emergencia.png`,
+        alt: "Pantalla de Corte de Emergencia Nivel I con alerta de llamada al 123",
+        tag: "Nivel I · Corte Vital",
+        title: "Protocolo de corte de emergencia (Línea 123)",
+        caption: "Ante síntomas críticos como dolor torácico opresivo, el sistema interrumpe el flujo normal y prioriza urgencias."
+      },
+      {
+        id: "meditraje-agenda",
+        src: `${BASE_PATH}/projects/meditraje/04-agenda-medica.png`,
+        alt: "Calendario semanal de citas médicas en el panel administrativo de MediTriaje",
+        tag: "Operación · Agenda",
+        title: "Supervisión de agenda médica en cuadrícula horaria",
+        caption: "Control en tiempo real de citas programadas, confirmadas, atendidas y canceladas con exportación a Excel."
+      },
+      {
+        id: "meditraje-cita",
+        src: `${BASE_PATH}/projects/meditraje/05-detalle-cita.png`,
+        alt: "Modal con el detalle completo de una cita médica y trazabilidad de paciente",
+        tag: "Trazabilidad · Cita",
+        title: "Ficha detallada de cita y contacto asistencial",
+        caption: "Inspección de profesional asignado, especialidad, sede, consultorio y estado de confirmación."
+      },
+      {
+        id: "meditraje-oracle",
+        src: `${BASE_PATH}/projects/meditraje/06-arquitectura-oracle.png`,
+        alt: "Diagrama de arquitectura PL/SQL en Oracle Cloud ATP con paquetes, triggers y vistas",
+        tag: "Oracle ATP · PL/SQL",
+        title: "Arquitectura de base de datos e inmutabilidad clínica",
+        caption: "54 tablas en 8 dominios, paquetes PL/SQL, 13 triggers que impiden borrar historias cerradas e índices concurrentes."
+      }
+    ]
   },
   {
     index: "04",
     name: "Digitalizador académico IA",
     headline: "Convertir planillas físicas en datos utilizables.",
-    description: "Aplicación de escritorio que interpreta planillas académicas a través de una API de inteligencia artificial.",
-    details: "Digitaliza registros, permite configurar porcentajes por nota o calcular promedios simples y exporta el resultado a Excel.",
+    description: "Aplicación de escritorio en Python que digitaliza planillas escolares manuscritas escaneadas en PDF mediante visión artificial con Google Gemini y genera libros de Excel consolidados.",
+    details: "Flujo guiado de 5 pantallas en CustomTkinter: rasterización de PDFs a 2× DPI con PyMuPDF, extracción JSON estructurada en segundo plano con Gemini Vision, tabla interactiva que resalta en amarillo las celdas dudosas y exportación multi-hoja con OpenPyXL.",
+    highlights: [
+      "Transcripción fiel sin invención de datos: marca trazos dudosos (<80% confianza) en amarillo (#FFE08A) para revisión docente",
+      "Procesamiento asíncrono multi-curso en hilo dedicado con reintentos automáticos y backoff exponencial",
+      "Exportación a Excel (.xlsx) con una pestaña por asignatura, encabezados institucionales y empaquetado en ejecutable .exe"
+    ],
     role: "Desarrollo individual · Aplicación de escritorio",
     status: "Proyecto personal",
     category: "automatizacion",
-    stack: ["IA vía API", "Automatización", "Procesamiento", "Excel"],
+    stack: ["Python 3", "Google Gemini Vision", "CustomTkinter", "PyMuPDF", "OpenPyXL", "PyInstaller"],
+    github: "https://github.com/Sebasr0311/SistemadeNotas",
     icon: FileSpreadsheet,
-    motif: "ai",
+    slides: [
+      {
+        id: "notas-comparativa",
+        src: `${BASE_PATH}/projects/notas/01-comparativa-ocr-ia.png`,
+        alt: "Comparativa entre planilla manuscrita escaneada y tabla extraída en CustomTkinter",
+        tag: "Visión IA · OCR Manuscrito",
+        title: "De planilla física escaneada a tabla estructurada",
+        caption: "Reconocimiento de nombres, notas manuscritas y casillas bloqueadas a partir de PDFs escaneados con CamScanner."
+      },
+      {
+        id: "notas-carga",
+        src: `${BASE_PATH}/projects/notas/02-carga-multicurso.png`,
+        alt: "Pantalla de carga multi-curso y monitor de extracción OCR en segundo plano",
+        tag: "Multi-Curso · Threading",
+        title: "Carga por lotes y extracción en segundo plano",
+        caption: "Asociación de múltiples cursos y archivos PDF con barra de progreso en vivo y registro detallado por página."
+      },
+      {
+        id: "notas-revision",
+        src: `${BASE_PATH}/projects/notas/03-tabla-revision-interactiva.png`,
+        alt: "Tabla interactiva de revisión docente con celdas de baja confianza resaltadas en amarillo",
+        tag: "Validación · Edición en Vivo",
+        title: "Tabla interactiva con alertas de confianza",
+        caption: "Navegación por pestañas de curso, edición manual previa a exportar y resaltado preventivo de celdas dudosas."
+      },
+      {
+        id: "notas-excel",
+        src: `${BASE_PATH}/projects/notas/04-excel-consolidado.png`,
+        alt: "Libro de Excel consolidado multi-hoja generado automáticamente con OpenPyXL",
+        tag: "OpenPyXL · Exportación",
+        title: "Libro Excel multi-hoja con formato institucional",
+        caption: "Generación automática de hojas por curso con encabezado institucional, filas cebreadas y notas listas para archivo."
+      }
+    ]
   },
   {
     index: "05",
     name: "Data Warehouse MusicBrainz",
     headline: "De millones de registros a información analítica.",
-    description: "Proyecto académico de ingeniería de datos utilizando PostgreSQL y arquitectura Medallón.",
-    details: "Como integrante del equipo, fui responsable de ingesta, limpieza y auditoría de datos mediante procesos ETL en Python para las capas Bronce y Plata; solución orientada a Power BI.",
+    description: "Data Warehouse analítico construido sobre PostgreSQL 16 (~16 GB) bajo arquitectura Medallón y modelo dimensional en estrella (Kimball) para explorar 15 millones de pistas musicales.",
+    details: "Ingesta masiva en Python con streaming COPY FROM STDIN desde volcados oficiales de MusicBrainz (~89,3M de filas en Silver 3FN), transformación a capa Gold con hechos particionados, auditoría de calidad con 0 huérfanos y dashboard de 3 páginas en Power BI con 26 medidas DAX.",
+    highlights: [
+      "ETL de alto rendimiento en Python con carga por bloques (COPY) hacia 10 tablas normalizadas (3FN) en capa Silver",
+      "Esquema estrella Kimball en capa Gold con particionamiento por rango, patrón Key 0 y 4 vistas materializadas OLAP",
+      "Modelo semántico en Power BI con 26 medidas DAX auditadas (1.728.603 lanzamientos únicos y 15.000.000 pistas)"
+    ],
     role: "Ingeniería de datos · Proyecto en equipo",
     status: "Proyecto académico",
     category: "datos",
-    stack: ["Python", "ETL", "PostgreSQL", "Medallón", "Power BI"],
+    stack: ["Python", "PostgreSQL 16", "Arquitectura Medallón", "Kimball Star Schema", "Power BI", "DAX", "Docker"],
     icon: Database,
-    motif: "dwh",
+    slides: [
+      {
+        id: "dwh-powerbi-analisis",
+        src: `${BASE_PATH}/projects/dwh/01-powerbi-analisis.png`,
+        alt: "Dashboard Power BI de DWMusicBrainz mostrando análisis por época, formato y artista",
+        tag: "Power BI · Análisis Detallado",
+        title: "Evolución de formatos, duración y artistas (15M pistas)",
+        caption: "Histograma de duración en bandas de 30s, transición del vinilo/CD al streaming (1950–2025) y ranking de producción."
+      },
+      {
+        id: "dwh-powerbi-calidad",
+        src: `${BASE_PATH}/projects/dwh/02-powerbi-calidad.png`,
+        alt: "Dashboard Power BI de DWMusicBrainz sobre calidad, cobertura ISRC y catálogo emergente",
+        tag: "Power BI · Calidad & ISRC",
+        title: "Cobertura ISRC, densidad del catálogo y talento emergente",
+        caption: "Drill-down temporal y geográfico, densidad por empaque y matriz de formalización ISRC por país y tipo de artista."
+      },
+      {
+        id: "dwh-estrella",
+        src: `${BASE_PATH}/projects/dwh/03-esquema-estrella.png`,
+        alt: "Diagrama del esquema estrella con tabla de hechos particionada y 6 dimensiones",
+        tag: "Capa Gold · Esquema Estrella",
+        title: "Diseño dimensional particionado por rango",
+        caption: "Tabla de hechos central rodeada de 6 dimensiones conformadas con llaves sustitutas y particionamiento temporal."
+      },
+      {
+        id: "dwh-medallion",
+        src: `${BASE_PATH}/projects/dwh/04-resumen-medallion.png`,
+        alt: "Resumen ejecutivo de KPIs y tabla de arquitectura Medallón de DWMusicBrainz",
+        tag: "Arquitectura · Medallón",
+        title: "Métricas globales y flujo Raw → Silver → Gold → Semántica",
+        caption: "1.728.603 lanzamientos únicos, 690.454 artistas activos y 965.241 horas de audio procesadas en PostgreSQL 16."
+      },
+      {
+        id: "dwh-auditoria",
+        src: `${BASE_PATH}/projects/dwh/06-auditoria-calidad.png`,
+        alt: "Tabla de controles automáticos de calidad de datos en meta.data_quality_log",
+        tag: "Gobierno del Dato · Auditoría",
+        title: "Conciliación automática Silver vs. Gold sin huérfanos",
+        caption: "Verificación de integridad referencial en las 6 dimensiones (0 huérfanos) y cuadre exacto de métricas aditivas."
+      }
+    ]
   },
 ];
 
@@ -135,9 +376,9 @@ const FILTERS: {value: "todos" | ProjectCategory; label: string}[] = [
 
 const SKILLS = [
   {title: "Desarrollo", icon: Code2, items: ["Java", "Spring Boot", "React", "Next.js", "TypeScript", "JavaScript", "Python", "C / C++"]},
-  {title: "Datos e IA", icon: Database, items: ["PostgreSQL", "Oracle SQL", "SQL", "ETL en Python", "Data Warehouse", "Power BI", "Integración de IA"]},
-  {title: "Cloud & DevOps", icon: Cloud, items: ["Oracle Cloud (OCI)", "Azure", "AWS", "Vercel", "Render", "Docker", "Git / GitHub"]},
-  {title: "Producto y equipo", icon: Workflow, items: ["APIs REST", "Automatización", "POO", "Scrum", "Trello", "Postman", "UI con Tailwind y shadcn/ui"]},
+  {title: "Datos e IA", icon: Database, items: ["PostgreSQL", "Oracle SQL", "PL/SQL", "ETL en Python", "Data Warehouse", "Power BI / DAX", "Google Gemini API"]},
+  {title: "Cloud & DevOps", icon: Cloud, items: ["Oracle Cloud (OCI)", "Supabase", "Vercel", "Render", "Docker", "Flyway", "Git / GitHub"]},
+  {title: "Producto y arquitectura", icon: Workflow, items: ["APIs REST", "Multi-Tenancy (RLS/VPD)", "Clean Architecture", "Scrum", "Tailwind CSS", "shadcn/ui"]},
 ];
 
 function Reveal({children, className="", delay=0}: {children:React.ReactNode; className?:string; delay?:number}) {
@@ -261,30 +502,83 @@ function About() {
   </section>;
 }
 
-function ProjectArtwork({project}: {project:Project}) {
-  const Icon=project.icon;
-  if(project.motif==="saed")return <div className="project-art project-art--saed" aria-hidden="true"><div className="art-topline"><span>SAED / 2.0</span><span>RESIDENTIAL SYSTEM</span></div><div className="art-saas-grid"><div className="art-saas-tile"><span className="art-square"/><span className="art-tile-lines"><i/><i/><i/></span></div><div className="art-saas-tile"><span className="art-ring"/><span className="art-tile-lines"><i/><i/></span></div><div className="art-saas-tile"><span className="art-chart"><i/><i/><i/><i/></span></div><div className="art-saas-tile"><span className="art-qr"><i/><i/><i/><i/></span></div></div><div className="art-bottomline"><span>ONE PLATFORM. MULTIPLE FLOWS.</span><span>✦</span></div></div>;
-  return <div className={`project-art project-art--${project.motif}`} aria-hidden="true"><span className="project-art-index">{project.index} / PROJECT</span><div className="project-art-center"><span className="project-art-orbit"/><Icon size={70} strokeWidth={1.1}/></div><span className="project-art-type">{project.motif==="alexa"?"ECOMMERCE / DIGITAL STORE":project.motif==="meditraje"?"HEALTH / WORKFLOWS":project.motif==="ai"?"AI / DESKTOP AUTOMATION":"DATA / ETL PIPELINES"}</span></div>;
-}
-
 function ProjectCard({project}: {project: Project}) {
-  const Icon=project.icon;
-  return <SpotlightCard className={`project-card ${project.featured?"project-card--featured":""}`} spotlightColor="rgba(92, 125, 233, 0.12)">
-    <ProjectArtwork project={project}/>
-    <div className="project-content">
-      <div className="project-heading-row"><div><p className="project-meta"><span>{project.index} / PROYECTO</span><span className="project-meta-divider">·</span><span>{project.role}</span></p><h3>{project.name}</h3></div><Icon className="project-mini-icon" size={23} strokeWidth={1.7}/></div>
-      <h4>{project.headline}</h4>
-      <p className="project-description">{project.description}</p>
-      <p className="project-detail">{project.details}</p>
-      <div className="project-stack">{project.stack.map(t=><span key={t}>{t}</span>)}</div>
-      <div className="project-card-footer"><Badge className={`project-status project-status--${project.category}`}>{project.status}</Badge>
-        <div className="project-links">
-          {project.github&&<a href={project.github} aria-label={`Código de ${project.name} en GitHub`} target="_blank" rel="noopener noreferrer"><Github size={17}/></a>}
-          {project.url ? <a href={project.url} aria-label={`Visitar ${project.name}`} target="_blank" rel="noopener noreferrer">Ver proyecto <ArrowUpRight size={17}/></a>:<span className="project-private">Sin enlace público</span>}
+  const Icon = project.icon;
+  return (
+    <SpotlightCard
+      className={`project-card ${project.featured ? "project-card--featured" : ""}`}
+      spotlightColor="rgba(92, 125, 233, 0.12)"
+    >
+      <div className="project-media">
+        <ProjectCarousel
+          slides={project.slides}
+          projectName={project.name}
+          autoplay={false}
+          loop={true}
+        />
+      </div>
+      <div className="project-content">
+        <div className="project-heading-row">
+          <div>
+            <p className="project-meta">
+              <span>{project.index} / PROYECTO</span>
+              <span className="project-meta-divider">·</span>
+              <span>{project.role}</span>
+            </p>
+            <h3>{project.name}</h3>
+          </div>
+          <Icon className="project-mini-icon" size={23} strokeWidth={1.7}/>
+        </div>
+        <h4>{project.headline}</h4>
+        <p className="project-description">{project.description}</p>
+        <p className="project-detail">{project.details}</p>
+        <ul className="project-highlights" aria-label={`Puntos clave de ${project.name}`}>
+          {project.highlights.map((item) => (
+            <li key={item}>
+              <Check size={14} className="project-highlight-icon" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="project-stack">
+          {project.stack.map((t) => (
+            <span key={t}>{t}</span>
+          ))}
+        </div>
+        <div className="project-card-footer">
+          <Badge className={`project-status project-status--${project.category}`}>
+            {project.status}
+          </Badge>
+          <div className="project-links">
+            {project.github && (
+              <a
+                href={project.github}
+                aria-label={`Código de ${project.name} en GitHub`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-github-link"
+              >
+                <Github size={16}/>
+                <span>Repositorio</span>
+              </a>
+            )}
+            {project.url ? (
+              <a
+                href={project.url}
+                aria-label={`Visitar ${project.name}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ver demo <ArrowUpRight size={16}/>
+              </a>
+            ) : (
+              <span className="project-private">App de escritorio / Local</span>
+            )}
+          </div>
         </div>
       </div>
-    </div>
-  </SpotlightCard>;
+    </SpotlightCard>
+  );
 }
 
 function Projects() {
@@ -292,12 +586,12 @@ function Projects() {
   const filtered=filter==="todos"?PROJECTS:PROJECTS.filter(p=>p.category===filter);
   return <section className="section section-projects" id="proyectos">
     <div className="container">
-      <Reveal><div className="section-heading-row"><SectionHeading eyebrow="02 / PROYECTOS SELECCIONADOS" title="Trabajos que hablan por sí solos." description="Software con propósito: productos comerciales, sistemas complejos, automatizaciones e ingeniería de datos."/><span className="section-count">05 <span>/ PROYECTOS</span></span></div></Reveal>
+      <Reveal><div className="section-heading-row"><SectionHeading eyebrow="02 / PROYECTOS SELECCIONADOS" title="Trabajos que hablan por sí solos." description="Explora las pantallas reales, flujos operativos y diagramas de arquitectura de cada proyecto a través del carrusel interactivo."/><span className="section-count">05 <span>/ PROYECTOS</span></span></div></Reveal>
       <Tabs value={filter} onValueChange={v=>setFilter(v as typeof filter)} className="project-filter-tabs"><TabsList aria-label="Filtrar proyectos">
         {FILTERS.map(f=><TabsTrigger key={f.value} value={f.value}>{f.label}</TabsTrigger>)}
       </TabsList></Tabs>
       <div className="projects-grid" aria-live="polite">{filtered.map((p,i)=><Reveal key={p.index} className={p.featured?"project-reveal--featured":""} delay={i*65}><ProjectCard project={p}/></Reveal>)}</div>
-      <p className="projects-footer-note"><ShieldCheck size={16}/> Los proyectos en desarrollo están identificados como tales. Los trabajos institucionales confidenciales no se publican aquí.</p>
+      <p className="projects-footer-note"><ShieldCheck size={16}/> Haz clic en cualquier captura o en el botón HD para inspeccionar las interfaces y diagramas en pantalla completa. Los trabajos institucionales confidenciales no se publican aquí.</p>
     </div>
   </section>;
 }
