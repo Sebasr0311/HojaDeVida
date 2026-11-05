@@ -90,8 +90,6 @@
   top: 0;
   width: 100%;
   overflow: hidden;
-  background: #0d1526;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.48);
 }
 
 .circular-carousel__photo {
