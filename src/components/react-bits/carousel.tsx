@@ -2,12 +2,12 @@
 /* eslint-disable @next/next/no-img-element */
 
 import * as React from "react";
-import { ChevronLeft, ChevronRight, Expand, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Expand, Layers, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import CircularCarousel, {
-  CircularCarouselHandle,
-  Digits,
-} from "@/components/react-bits/CircularCarousel";
+import ReactBitsCarousel, {
+  type CarouselEffect,
+  type ReactBitsCarouselHandle,
+} from "@/components/react-bits/ReactBitsCarousel";
 
 export interface CarouselSlide {
   id: string;
@@ -26,29 +26,38 @@ interface CarouselProps {
   pauseOnHover?: boolean;
   loop?: boolean;
   featured?: boolean;
+  defaultEffect?: CarouselEffect;
   className?: string;
 }
 
+const EFFECT_CYCLE: { id: CarouselEffect; label: string }[] = [
+  { id: "scale", label: "Scale" },
+  { id: "tilt", label: "3D Tilt" },
+  { id: "cube", label: "Cube" },
+  { id: "slide", label: "Slide" },
+];
+
 /**
- * Interactive Project Carousel powered by React Bits CircularCarousel
- * (@react-bits/CircularCarousel-JS-CSS):
- * - 3D ring of bendable cards with momentum drag, snapping, parallax and click-to-focus
- * - Animated digit reel counter + slide tag + title + caption
- * - Synchronized Prev/Next arrows, indicator pills, and full-screen HD Lightbox modal
+ * Interactive Project Carousel powered by React Bits Carousel (@react-bits/Carousel-TS-CSS):
+ * - Full-width 16:10 high-definition stage with peeking adjacent cards & spring momentum
+ * - Switchable React Bits transition physics (Scale, 3D Tilt, Cube, Slide)
+ * - Autoplay progress bar indicators, keyboard/drag/wheel navigation, and HD Lightbox Modal
  */
 export function Carousel({
   slides,
   projectName,
-  autoplay = false,
+  autoplay = true,
   autoplayDelay = 4800,
   pauseOnHover = true,
   loop = true,
   featured = false,
+  defaultEffect = "scale",
   className,
 }: CarouselProps) {
   const [active, setActive] = React.useState(0);
+  const [effect, setEffect] = React.useState<CarouselEffect>(defaultEffect);
   const [lightboxOpen, setLightboxOpen] = React.useState(false);
-  const ringRef = React.useRef<CircularCarouselHandle | null>(null);
+  const carouselRef = React.useRef<ReactBitsCarouselHandle | null>(null);
 
   const count = slides.length;
 
@@ -59,7 +68,7 @@ export function Carousel({
         ? ((index % count) + count) % count
         : Math.max(0, Math.min(count - 1, index));
       setActive(target);
-      ringRef.current?.focusIndex(target);
+      carouselRef.current?.goTo(target);
     },
     [count, loop]
   );
@@ -69,10 +78,17 @@ export function Carousel({
       if (count <= 1) return;
       const next = ((active + delta) % count + count) % count;
       setActive(next);
-      ringRef.current?.stepBy(delta);
+      carouselRef.current?.step(delta);
     },
     [active, count]
   );
+
+  const cycleEffect = React.useCallback(() => {
+    setEffect((prev) => {
+      const idx = EFFECT_CYCLE.findIndex((e) => e.id === prev);
+      return EFFECT_CYCLE[(idx + 1) % EFFECT_CYCLE.length].id;
+    });
+  }, []);
 
   // Close lightbox on Escape & navigate with arrows when lightbox is open
   React.useEffect(() => {
@@ -92,83 +108,88 @@ export function Carousel({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [lightboxOpen, step]);
 
-  const circularItems = React.useMemo(
+  const items = React.useMemo(
     () =>
       slides.map((s) => ({
         id: s.id,
-        src: s.src,
+        image: s.src,
         alt: s.alt,
-        title: s.title,
-        subtitle: s.tag,
-        tag: s.tag,
-        caption: s.caption,
       })),
     [slides]
   );
 
   if (count === 0) return null;
   const currentSlide = slides[active] ?? slides[0];
+  const currentEffectLabel =
+    EFFECT_CYCLE.find((e) => e.id === effect)?.label ?? "Scale";
 
   return (
     <>
       <div
         className={cn("rb-carousel", featured && "rb-carousel--featured", className)}
         role="region"
-        aria-roledescription="carrusel circular 3D"
-        aria-label={`Galería interactiva 3D de ${projectName}`}
+        aria-roledescription="carrusel interactivo"
+        aria-label={`Galería interactiva de ${projectName}`}
       >
         {/* Top bar inside carousel frame */}
         <div className="rb-carousel-topbar">
           <div className="rb-carousel-meta">
             <span className="rb-carousel-counter">
-              <Digits value={active + 1} />
+              <span>{String(active + 1).padStart(2, "0")}</span>
               <span className="rb-carousel-counter-sep">/</span>
               <span>{String(count).padStart(2, "0")}</span>
             </span>
             <span className="rb-carousel-tag">{currentSlide.tag}</span>
           </div>
-          <button
-            type="button"
-            className="rb-carousel-expand"
-            onClick={() => setLightboxOpen(true)}
-            aria-label={`Ampliar captura: ${currentSlide.title}`}
-            title="Ver imagen en alta definición"
-          >
-            <Expand className="h-3.5 w-3.5" />
-            <span>HD</span>
-          </button>
+          <div className="rb-carousel-actions">
+            <button
+              type="button"
+              className="rb-carousel-effect-btn"
+              onClick={cycleEffect}
+              aria-label={`Cambiar transición del carrusel (actual: ${currentEffectLabel})`}
+              title="Cambiar efecto de transición React Bits"
+            >
+              <Layers className="h-3 w-3" />
+              <span>{currentEffectLabel}</span>
+            </button>
+            <button
+              type="button"
+              className="rb-carousel-expand"
+              onClick={() => setLightboxOpen(true)}
+              aria-label={`Ampliar captura: ${currentSlide.title}`}
+              title="Ver imagen en alta definición"
+            >
+              <Expand className="h-3.5 w-3.5" />
+              <span>HD</span>
+            </button>
+          </div>
         </div>
 
-        {/* 3D CircularCarousel stage (@react-bits/CircularCarousel-JS-CSS) */}
+        {/* React Bits Carousel Stage (@react-bits/Carousel-TS-CSS) */}
         <div className="rb-carousel-viewport">
-          <CircularCarousel
-            ref={ringRef}
-            items={circularItems}
-            preset="cylinder"
-            intro="rise"
-            cardWidth={featured ? 310 : 255}
-            aspectRatio={1.6}
-            gap={22}
-            curve={0.35}
-            tilt={-4}
-            autoplay={autoplay ? "step" : "off"}
-            interval={autoplayDelay / 1000}
-            pauseOnHover={pauseOnHover}
-            draggable={true}
-            snap={true}
-            focusOnClick={true}
-            fadeColor="#090e17"
-            cornerRadius={10}
-            captions={false}
-            onChange={(index) => setActive(index)}
-            onItemClick={(_, index) => {
-              if (index === active) {
-                setLightboxOpen(true);
-              } else {
-                setActive(index);
-              }
-            }}
-          />
+          <div className="rb-carousel-stage-inner">
+            <ReactBitsCarousel
+              ref={carouselRef}
+              items={items}
+              baseWidth="100%"
+              aspectRatio={1.6}
+              peek={featured ? 28 : 20}
+              gap={featured ? 14 : 10}
+              radius={10}
+              frame={false}
+              effect={effect}
+              indicator="bars"
+              arrows={false}
+              autoplay={autoplay && !lightboxOpen}
+              autoplayDelay={autoplayDelay}
+              pauseOnHover={pauseOnHover}
+              loop={loop}
+              draggable={true}
+              theme="dark"
+              onChange={(index) => setActive(index)}
+              onActiveClick={() => setLightboxOpen(true)}
+            />
+          </div>
 
           {count > 1 && (
             <>
@@ -192,7 +213,7 @@ export function Carousel({
           )}
         </div>
 
-        {/* Footer with caption + indicator pills */}
+        {/* Footer with caption + quick slide selector pills */}
         <div className="rb-carousel-footer">
           <div className="rb-carousel-caption-wrap">
             <strong className="rb-carousel-title">{currentSlide.title}</strong>
@@ -309,4 +330,3 @@ export function Carousel({
 }
 
 export const ProjectCarousel = Carousel;
-

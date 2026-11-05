@@ -1,17 +1,23 @@
 "use client";
 
 import * as React from "react";
-import Image from "next/image";
 import {
-  ArrowDown, ArrowUpRight, BookOpen, Check, Cloud, Code2, Database, Download,
-  FileSpreadsheet, Github, GraduationCap, HeartPulse, Layers3, Linkedin, Mail,
-  MapPin, Menu, MessageCircle, ShieldCheck, ShoppingBag, Terminal, Workflow, X
+  ArrowDown, ArrowUpRight, BookOpen, Check, Cloud, Code2, Cpu, Database, Download,
+  FileSpreadsheet, Github, GraduationCap, HeartPulse, Layers3, Linkedin, Lock, Mail,
+  MapPin, Menu, MessageCircle, Server, ShieldCheck, ShoppingBag, Sparkles, Terminal, Workflow, X
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { SpotlightCard } from "@/components/react-bits/spotlight-card";
 import { ProjectCarousel, type CarouselSlide } from "@/components/react-bits/carousel";
+import { ShinyText } from "@/components/react-bits/ShinyText";
+import { DecryptedText } from "@/components/react-bits/DecryptedText";
+import { TiltedCard } from "@/components/react-bits/TiltedCard";
+import { GlareHover } from "@/components/react-bits/GlareHover";
+import { Magnet } from "@/components/react-bits/Magnet";
+import { ClickSpark } from "@/components/react-bits/ClickSpark";
+import { LogoLoop, type LogoItem } from "@/components/react-bits/LogoLoop";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
@@ -224,7 +230,7 @@ const PROJECTS: Project[] = [
         alt: "Portal principal de MediTriaje 2.0 con vista previa de flujo clínico",
         tag: "Salud Digital · Portal",
         title: "Atención médica oportuna y triaje inteligente",
-        caption: " Resumen asistencial con orientación de prioridad, asignación de turno sin colisiones y receta digital sellada."
+        caption: "Resumen asistencial con orientación de prioridad, asignación de turno sin colisiones y receta digital sellada."
       },
       {
         id: "meditraje-simulador",
@@ -397,6 +403,17 @@ const SKILLS = [
   {title: "Producto y arquitectura", icon: Workflow, items: ["APIs REST", "Multi-Tenancy (RLS/VPD)", "Clean Architecture", "Scrum", "Tailwind CSS", "shadcn/ui"]},
 ];
 
+const TECH_LOOP_ITEMS: LogoItem[] = [
+  { node: <span className="tech-loop-pill"><Server size={15} /> Java 21 LTS & Spring Boot 3</span>, title: "Java & Spring Boot" },
+  { node: <span className="tech-loop-pill"><Code2 size={15} /> React 19 & Next.js 15</span>, title: "React & Next.js" },
+  { node: <span className="tech-loop-pill"><Database size={15} /> Oracle Cloud ATP (PL/SQL · VPD)</span>, title: "Oracle Cloud ATP" },
+  { node: <span className="tech-loop-pill"><Database size={15} /> PostgreSQL 16 & Supabase</span>, title: "PostgreSQL & Supabase" },
+  { node: <span className="tech-loop-pill"><Sparkles size={15} /> Python 3 & Google Gemini Vision</span>, title: "Python & Gemini AI" },
+  { node: <span className="tech-loop-pill"><Layers3 size={15} /> Data Warehouse · Kimball & DAX</span>, title: "Data Warehouse & Power BI" },
+  { node: <span className="tech-loop-pill"><Lock size={15} /> Seguridad Multi-Tenant & TOTP MFA</span>, title: "Seguridad & Multi-Tenancy" },
+  { node: <span className="tech-loop-pill"><Cpu size={15} /> Docker · Flyway · OCI · Git</span>, title: "Cloud & DevOps" },
+];
+
 function Reveal({children, className="", delay=0}: {children:React.ReactNode; className?:string; delay?:number}) {
   const node = React.useRef<HTMLDivElement>(null);
   React.useEffect(() => {
@@ -423,7 +440,10 @@ function Reveal({children, className="", delay=0}: {children:React.ReactNode; cl
 
 function SectionHeading({eyebrow, title, description}: {eyebrow:string;title:string;description?:string}) {
   return <div className="section-heading">
-    <p className="eyebrow"><span className="eyebrow-line"/> {eyebrow}</p>
+    <p className="eyebrow">
+      <span className="eyebrow-line"/>
+      <DecryptedText text={eyebrow} animateOn="inViewHover" sequential={true} speed={30} scrambleColor="#4b64df" />
+    </p>
     <h2>{title}</h2>
     {description && <p className="section-intro">{description}</p>}
   </div>;
@@ -449,7 +469,9 @@ function Header() {
       </nav>
       <div className="header-actions">
         <a className="header-resume" href={LINKS.cv} target="_blank" rel="noopener noreferrer" aria-label="Ver CV PDF">CV <Download size={14}/></a>
-        <Button asChild size="sm" className="header-cta"><a href="#contacto">Hablemos <ArrowUpRight size={16}/></a></Button>
+        <Magnet padding={40} magnetStrength={3.5}>
+          <Button asChild size="sm" className="header-cta"><a href="#contacto">Hablemos <ArrowUpRight size={16}/></a></Button>
+        </Magnet>
         <button className="mobile-menu" type="button" aria-controls="primary-nav" aria-expanded={open} onClick={()=>setOpen(!open)} aria-label={open?"Cerrar menú":"Abrir menú"}>
           {open ? <X size={22}/> : <Menu size={22}/>}
         </button>
@@ -464,13 +486,37 @@ function Hero() {
     <div className="hero-ambient hero-ambient--two" aria-hidden="true"/>
     <div className="container hero-grid">
       <div className="hero-copy">
-        <div className="hero-location"><MapPin size={14}/> Valledupar, Colombia <span className="hero-location-divider"/> Desarrollo de software</div>
-        <div className="availability"><span className="availability-pulse"/> Disponible para patrocinio y contrato de aprendizaje SENA</div>
-        <h1>Transformo <span className="hero-highlight">problemas</span> en software que <em>funciona.</em></h1>
+        <div className="hero-location"><MapPin size={14}/> Valledupar, Colombia <span className="hero-location-divider"/> <DecryptedText text="Desarrollo de software" animateOn="inViewHover" sequential={true} speed={28} scrambleColor="#4b64df" /></div>
+        <div className="availability">
+          <span className="availability-pulse"/>
+          <ShinyText
+            text="Disponible para patrocinio y contrato de aprendizaje SENA"
+            color="#2b5e42"
+            shineColor="#4ad68d"
+            speed={3.2}
+            delay={1.4}
+          />
+        </div>
+        <h1>
+          Transformo{" "}
+          <ShinyText
+            text="problemas"
+            color="#4b64df"
+            shineColor="#98b0ff"
+            speed={2.6}
+            delay={0.8}
+            className="hero-highlight"
+          />{" "}
+          en software que <em>funciona.</em>
+        </h1>
         <p className="hero-description">Soy <strong>Juan Sebastián Rincón</strong>. Desarrollo aplicaciones Full Stack, automatizo procesos y construyo soluciones donde la ingeniería, los datos y las ideas se encuentran.</p>
         <div className="hero-actions">
-          <Button asChild size="lg"><a href="#proyectos">Explorar mis proyectos <ArrowUpRight size={18}/></a></Button>
-          <Button asChild variant="outline" size="lg"><a href={LINKS.cv} target="_blank" rel="noopener noreferrer">Descargar CV <Download size={17}/></a></Button>
+          <Magnet padding={55} magnetStrength={3.2}>
+            <Button asChild size="lg"><a href="#proyectos">Explorar mis proyectos <ArrowUpRight size={18}/></a></Button>
+          </Magnet>
+          <Magnet padding={45} magnetStrength={3.8}>
+            <Button asChild variant="outline" size="lg"><a href={LINKS.cv} target="_blank" rel="noopener noreferrer">Descargar CV <Download size={17}/></a></Button>
+          </Magnet>
         </div>
         <div className="hero-socials">
           <span>ENCUÉNTRAME EN</span>
@@ -481,12 +527,34 @@ function Hero() {
       </div>
       <div className="hero-visual">
         <div className="portrait-backdrop" aria-hidden="true"/>
-        <div className="portrait-frame">
-          <Image src={LINKS.portrait} alt="Retrato profesional de Juan Sebastián Rincón Farelo" width={720} height={900} className="portrait-image" priority sizes="(max-width: 900px) 80vw, 440px"/>
-          <div className="portrait-name"><span>JUAN SEBASTIÁN RINCÓN</span><span>FULL STACK / SOFTWARE</span></div>
+        <div className="portrait-tilted-shell">
+          <TiltedCard
+            imageSrc={LINKS.portrait}
+            altText="Retrato profesional de Juan Sebastián Rincón Farelo"
+            captionText="Juan Sebastián · Full Stack & Data"
+            containerWidth="100%"
+            containerHeight="100%"
+            imageWidth="100%"
+            imageHeight="100%"
+            rotateAmplitude={10}
+            scaleOnHover={1.025}
+            glare={0.35}
+            shadow={0.45}
+            floating={true}
+            radius={30}
+            showTooltip={true}
+            displayOverlayContent={true}
+            overlayDepth={24}
+            overlayContent={
+              <div className="portrait-name">
+                <span>JUAN SEBASTIÁN RINCÓN</span>
+                <span>FULL STACK / SOFTWARE</span>
+              </div>
+            }
+          />
         </div>
         <div className="floating-token floating-token--top"><div className="floating-token-icon"><Terminal size={18}/></div><div><strong>Software Engineering</strong><span>Build · Automate · Ship</span></div><span className="floating-verified"><Check size={14}/></span></div>
-        <div className="floating-token floating-token--bottom"><span className="floating-status"/><div><strong>Creando SAED</strong><span>Plataforma SaaS · En desarrollo</span></div><ArrowUpRight size={17}/></div>
+        <div className="floating-token floating-token--bottom"><span className="floating-status"/><div><strong>SAED 2.0 Activo</strong><span>SaaS Multi-Tenant · Nuevo Diseño</span></div><ArrowUpRight size={17}/></div>
         <span className="hero-asterisk" aria-hidden="true">✳</span>
       </div>
     </div>
@@ -500,7 +568,10 @@ function About() {
   return <section className="section section-about" id="sobre-mi">
     <div className="container about-grid">
       <Reveal><div className="about-left">
-        <p className="eyebrow"><span className="eyebrow-line"/> 01 / SOBRE MÍ</p>
+        <p className="eyebrow">
+          <span className="eyebrow-line"/>
+          <DecryptedText text="01 / SOBRE MÍ" animateOn="inViewHover" sequential={true} speed={30} scrambleColor="#4b64df" />
+        </p>
         <h2>La tecnología tiene sentido cuando <em>resuelve algo real.</em></h2>
         <div className="about-stamp"><span>JS</span><span>DISEÑAR · CONSTRUIR · MEJORAR</span></div>
       </div></Reveal>
@@ -529,7 +600,9 @@ function ProjectCard({project}: {project: Project}) {
         <ProjectCarousel
           slides={project.slides}
           projectName={project.name}
-          autoplay={false}
+          autoplay={true}
+          autoplayDelay={5200}
+          pauseOnHover={true}
           loop={true}
           featured={Boolean(project.featured)}
         />
@@ -538,7 +611,7 @@ function ProjectCard({project}: {project: Project}) {
         <div className="project-heading-row">
           <div>
             <p className="project-meta">
-              <span>{project.index} / PROYECTO</span>
+              <DecryptedText text={`${project.index} / PROYECTO`} animateOn="inViewHover" sequential={true} speed={28} scrambleColor="#4b64df" />
               <span className="project-meta-divider">·</span>
               <span>{project.role}</span>
             </p>
@@ -603,22 +676,56 @@ function Projects() {
   const filtered=filter==="todos"?PROJECTS:PROJECTS.filter(p=>p.category===filter);
   return <section className="section section-projects" id="proyectos">
     <div className="container">
-      <Reveal><div className="section-heading-row"><SectionHeading eyebrow="02 / PROYECTOS SELECCIONADOS" title="Trabajos que hablan por sí solos." description="Explora las pantallas reales, flujos operativos y diagramas de arquitectura de cada proyecto a través del carrusel interactivo."/><span className="section-count">05 <span>/ PROYECTOS</span></span></div></Reveal>
+      <Reveal><div className="section-heading-row"><SectionHeading eyebrow="02 / PROYECTOS SELECCIONADOS" title="Trabajos que hablan por sí solos." description="Explora las pantallas reales, flujos operativos y diagramas de arquitectura de cada proyecto con el carrusel interactivo React Bits."/><span className="section-count">05 <span>/ PROYECTOS</span></span></div></Reveal>
       <Tabs value={filter} onValueChange={v=>setFilter(v as typeof filter)} className="project-filter-tabs"><TabsList aria-label="Filtrar proyectos">
         {FILTERS.map(f=><TabsTrigger key={f.value} value={f.value}>{f.label}</TabsTrigger>)}
       </TabsList></Tabs>
       <div className="projects-grid" aria-live="polite">{filtered.map((p,i)=><Reveal key={p.index} className={p.featured?"project-reveal--featured":""} delay={i*65}><ProjectCard project={p}/></Reveal>)}</div>
-      <p className="projects-footer-note"><ShieldCheck size={16}/> Haz clic en cualquier captura o en el botón HD para inspeccionar las interfaces y diagramas en pantalla completa. Los trabajos institucionales confidenciales no se publican aquí.</p>
+      <p className="projects-footer-note"><ShieldCheck size={16}/> Haz clic en la captura activa o en el botón HD para inspeccionar en pantalla completa, o cambia el modo de transición (Scale · 3D Tilt · Cube · Slide). Los trabajos institucionales confidenciales no se publican aquí.</p>
     </div>
   </section>;
 }
 
 function Technology() {
   return <section className="section section-skills" id="tecnologias"><div className="container">
-    <Reveal><div className="section-heading-row"><SectionHeading eyebrow="03 / HERRAMIENTAS Y CONOCIMIENTOS" title="El stack es el medio. La solución es el objetivo." description="Tecnologías con las que diseño, desarrollo, integro y despliego soluciones."/></div></Reveal>
+    <Reveal><div className="section-heading-row"><SectionHeading eyebrow="03 / HERRAMIENTAS Y CONOCIMIENTOS" title="El stack es el medio. La solución es el objetivo." description="Tecnologías con las que diseño, desarrollo, integro y despliego soluciones de extremo a extremo."/></div></Reveal>
+    <Reveal delay={60}>
+      <div className="tech-loop-shell">
+        <LogoLoop
+          logos={TECH_LOOP_ITEMS}
+          speed={55}
+          direction="left"
+          logoHeight={26}
+          gap={16}
+          pauseOnHover={true}
+          scaleOnHover={true}
+          fadeOut={true}
+          fadeOutWidth={0.09}
+          draggable={true}
+          scrollBoost={0.12}
+          ariaLabel="Ecosistema tecnológico principal"
+        />
+      </div>
+    </Reveal>
     <div className="skills-grid">{SKILLS.map((group,i)=>{
       const Icon=group.icon;
-      return <Reveal key={group.title} delay={i*80}><div className="skills-card"><div className="skills-head"><span className="skills-icon"><Icon size={25} strokeWidth={1.65}/></span><span className="skills-number">0{i+1}</span></div><h3>{group.title}</h3><div className="skills-tags">{group.items.map(item=><span key={item}>{item}</span>)}</div></div></Reveal>;
+      return <Reveal key={group.title} delay={i*80}>
+        <GlareHover
+          width="100%"
+          height="100%"
+          borderRadius="19px"
+          glareColor="#5a72e6"
+          glareOpacity={0.15}
+          variant="twin"
+          rimGlint={true}
+        >
+          <div className="skills-card">
+            <div className="skills-head"><span className="skills-icon"><Icon size={25} strokeWidth={1.65}/></span><span className="skills-number">0{i+1}</span></div>
+            <h3>{group.title}</h3>
+            <div className="skills-tags">{group.items.map(item=><span key={item}>{item}</span>)}</div>
+          </div>
+        </GlareHover>
+      </Reveal>;
     })}</div>
     <p className="skills-note">Actualmente ampliando conocimientos en Angular. La experiencia y el nivel de profundidad varían entre tecnologías.</p>
   </div></section>;
@@ -642,9 +749,15 @@ function Journey() {
 }
 
 function Contact() {
-  return <section className="section-contact" id="contacto"><div className="container"><div className="contact-panel"><div className="contact-glow" aria-hidden="true"/><div className="contact-top"><span className="contact-kicker"><span className="small-online-dot"/> DISPONIBLE PARA CONVERSAR</span><span className="contact-index">05 / CONTACTO</span></div>
+  return <section className="section-contact" id="contacto"><div className="container"><div className="contact-panel"><div className="contact-glow" aria-hidden="true"/><div className="contact-top"><span className="contact-kicker"><span className="small-online-dot"/> <ShinyText text="DISPONIBLE PARA CONVERSAR" color="#c4d1e3" shineColor="#ffffff" speed={2.8} delay={1.2} /></span><span className="contact-index"><DecryptedText text="05 / CONTACTO" animateOn="inViewHover" sequential={true} speed={30} scrambleColor="#8ca4ff" /></span></div>
     <div className="contact-middle"><div><h2>¿Tienes un reto?<br/><em>Construyamos</em> la solución.</h2><p>Abierto a oportunidades de aprendizaje, equipos de desarrollo y proyectos donde la tecnología pueda crear valor real.</p><p className="contact-context">Actualmente en etapa lectiva SENA; cualquier inicio de etapa productiva requiere autorización institucional.</p></div>
-      <div className="contact-actions"><Button asChild size="lg" className="contact-button"><a href={LINKS.email}>Escríbeme un correo <ArrowUpRight size={19}/></a></Button><a className="contact-link" href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer"><MessageCircle size={18}/> Hablemos por WhatsApp <ArrowUpRight size={16}/></a><a className="contact-link" href={LINKS.cv} target="_blank" rel="noopener noreferrer"><Download size={18}/> Descargar mi CV <ArrowUpRight size={16}/></a></div>
+      <div className="contact-actions">
+        <Magnet padding={45} magnetStrength={3.4} style={{ width: "100%" }}>
+          <Button asChild size="lg" className="contact-button" style={{ width: "100%" }}><a href={LINKS.email}>Escríbeme un correo <ArrowUpRight size={19}/></a></Button>
+        </Magnet>
+        <a className="contact-link" href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer"><MessageCircle size={18}/> Hablemos por WhatsApp <ArrowUpRight size={16}/></a>
+        <a className="contact-link" href={LINKS.cv} target="_blank" rel="noopener noreferrer"><Download size={18}/> Descargar mi CV <ArrowUpRight size={16}/></a>
+      </div>
     </div>
     <div className="contact-bottom"><span>juansebastianrincon@unicesar.edu.co</span><span>Valledupar · Colombia</span></div>
   </div></div></section>;
@@ -655,5 +768,27 @@ function Footer() {
 }
 
 export function PortfolioPage() {
-  return <><a className="skip-link" href="#contenido">Saltar al contenido</a><Header/><main id="contenido"><Hero/><About/><Projects/><Technology/><Journey/><Contact/></main><Footer/></>;
+  return (
+    <ClickSpark
+      sparkColor={["#4b64df", "#6c87ff", "#36b475"]}
+      sparkSize={11}
+      sparkRadius={24}
+      sparkCount={8}
+      duration={440}
+      shape="streak"
+      ring={true}
+    >
+      <a className="skip-link" href="#contenido">Saltar al contenido</a>
+      <Header/>
+      <main id="contenido">
+        <Hero/>
+        <About/>
+        <Projects/>
+        <Technology/>
+        <Journey/>
+        <Contact/>
+      </main>
+      <Footer/>
+    </ClickSpark>
+  );
 }

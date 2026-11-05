@@ -1,11 +1,19 @@
 # Créditos de terceros
 
-## React Bits — SpotlightCard y CircularCarousel
+## React Bits (`@react-bits`)
 
 - Proyecto: React Bits por David Haz.
-- Fuentes adaptadas:
-  - `SpotlightCard`: https://github.com/DavidHDev/react-bits/blob/main/src/content/Components/SpotlightCard/SpotlightCard.jsx
-  - `CircularCarousel`: https://reactbits.dev/r/CircularCarousel-JS-CSS.json
+- Registro oficial: `https://reactbits.dev/r/{name}.json`
+- Componentes integrados en `src/components/react-bits/`:
+  - `Carousel` (`https://reactbits.dev/r/Carousel-TS-CSS.json`)
+  - `SpotlightCard` (`https://reactbits.dev/r/SpotlightCard-TS-CSS.json`)
+  - `ShinyText` (`https://reactbits.dev/r/ShinyText-TS-CSS.json`)
+  - `DecryptedText` (`https://reactbits.dev/r/DecryptedText-TS-CSS.json`)
+  - `TiltedCard` (`https://reactbits.dev/r/TiltedCard-TS-CSS.json`)
+  - `GlareHover` (`https://reactbits.dev/r/GlareHover-TS-CSS.json`)
+  - `Magnet` (`https://reactbits.dev/r/Magnet-TS-CSS.json`)
+  - `ClickSpark` (`https://reactbits.dev/r/ClickSpark-TS-CSS.json`)
+  - `LogoLoop` (`https://reactbits.dev/r/LogoLoop-TS-CSS.json`)
 - Sitio oficial: https://reactbits.dev/
 - Licencia publicada por el proyecto: MIT + Commons Clause. Revisa los términos actuales antes de redistribuir el código.
 

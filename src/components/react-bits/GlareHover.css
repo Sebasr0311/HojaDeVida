@@ -1,0 +1,45 @@
+.glare-hover {
+  position: relative;
+  display: block;
+  width: var(--gh-width, 100%);
+  height: var(--gh-height, 100%);
+  background: var(--gh-bg, transparent);
+  border-radius: var(--gh-br, 19px);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.glare-hover__glare {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  opacity: 0;
+  mix-blend-mode: var(--gh-blend, normal);
+  pointer-events: none;
+}
+
+.glare-hover__band {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: var(--gh-glare);
+  will-change: transform;
+}
+
+.glare-hover__rim {
+  position: absolute;
+  inset: 0;
+  padding: 1.5px;
+  border-radius: inherit;
+  -webkit-mask-image: linear-gradient(#000 0 0), linear-gradient(#000 0 0);
+  -webkit-mask-clip: content-box, border-box;
+  -webkit-mask-composite: xor;
+  mask-image: linear-gradient(#000 0 0), linear-gradient(#000 0 0);
+  mask-clip: content-box, border-box;
+  mask-composite: exclude;
+}
+
+.glare-hover__band--rim {
+  background: var(--gh-rim);
+}
