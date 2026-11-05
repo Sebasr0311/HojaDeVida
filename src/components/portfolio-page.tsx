@@ -73,44 +73,60 @@ const PROJECTS: Project[] = [
     featured: true,
     slides: [
       {
-        id: "saed-landing",
-        src: `${BASE_PATH}/projects/saed/01-landing-hero.png`,
-        alt: "Landing page de SAED 2.0 mostrando propuesta de valor para copropiedades",
-        tag: "Plataforma SaaS · Landing",
-        title: "Ecosistema digital para copropiedades",
-        caption: "Presentación comercial de SAED 2.0 con acceso unificado para administración, portería y residentes."
+        id: "saed-manual-hero",
+        src: `${BASE_PATH}/projects/saed/01-manual-hero.png`,
+        alt: "Nuevo diseño SAED 2.0: Manual de armado del conjunto con simulador de unidades e invitación QR",
+        tag: "SAED 2.0 · Manual del Conjunto",
+        title: "Tu conjunto, armado pieza por pieza",
+        caption: "Nuevo sistema de diseño SAED 2.0 con simulador interactivo de unidades y vista previa de pases QR."
+      },
+      {
+        id: "saed-manual-piezas",
+        src: `${BASE_PATH}/projects/saed/02-manual-piezas.png`,
+        alt: "Arquitectura de los 6 roles y módulos integrados en SAED 2.0",
+        tag: "Arquitectura · 6 Roles RBAC",
+        title: "Lo que viene en la caja: 6 roles sobre un mismo registro",
+        caption: "Organización, Administrador, Portería, Residente Titular, Conviviente y Propietario no residente conectados en tiempo real."
       },
       {
         id: "saed-cartera",
-        src: `${BASE_PATH}/projects/saed/02-admin-cartera.png`,
-        alt: "Módulo administrativo de Cartera y Cobros en SAED 2.0",
-        tag: "Administración · Finanzas",
-        title: "Gestión de cartera y cobros por unidad",
-        caption: "Control detallado de obligaciones ordinarias y extraordinarias con filtros por estado, torre e inmueble."
+        src: `${BASE_PATH}/projects/saed/03-admin-cartera.png`,
+        alt: "Nuevo panel de Cartera y Cobros en SAED 2.0 con antigüedad de deuda por unidad",
+        tag: "Administración · Cartera",
+        title: "Cartera, cobros y antigüedad de mora por unidad",
+        caption: "Control de recaudo, saldos vencidos a 30/60/90+ días y estados de mora crítica por apartamento."
       },
       {
         id: "saed-pagos",
-        src: `${BASE_PATH}/projects/saed/03-admin-pagos.png`,
-        alt: "Bandeja de gestión y conciliación de pagos en SAED 2.0",
+        src: `${BASE_PATH}/projects/saed/04-admin-pagos.png`,
+        alt: "Gestión de pagos y bandeja de aprobación de soportes en SAED 2.0",
         tag: "Finanzas · Conciliación",
-        title: "Bandeja de pagos y aprobación de soportes",
-        caption: "Conciliación de recaudos en línea vía Wompi y validación administrativa de comprobantes manuales."
+        title: "Gestión de pagos y bandeja de aprobación",
+        caption: "Saldos consolidados por residente, registro de abonos manuales y aprobación administrativa de comprobantes."
       },
       {
-        id: "saed-residente",
-        src: `${BASE_PATH}/projects/saed/04-residente-dashboard.png`,
-        alt: "Panel del Residente Titular con estado de cartera y pase QR",
-        tag: "Autoservicio · Residente",
-        title: "Portal del Residente Titular",
-        caption: "Consulta de estado de cuenta, pago directo en línea, generación de invitaciones QR y reservas de zonas comunes."
+        id: "saed-residente-panel",
+        src: `${BASE_PATH}/projects/saed/05-residente-dashboard.png`,
+        alt: "Centro operativo del Residente Titular en el nuevo diseño de SAED 2.0",
+        tag: "Autoservicio · Residente Titular",
+        title: "Centro Operativo del Residente (Apto 402)",
+        caption: "Alertas prioritarias de cuotas, visitantes en portería, paquetes por retirar, reservas activas y avisos de comunidad."
       },
       {
-        id: "saed-porteria",
-        src: `${BASE_PATH}/projects/saed/05-porteria-qr.png`,
-        alt: "Escáner y validación de código QR en consola de portería SAED 2.0",
+        id: "saed-residente-operaciones",
+        src: `${BASE_PATH}/projects/saed/06-residente-operaciones.png`,
+        alt: "Pago de cuotas con Wompi, pase QR activo y custodia de paquetes en SAED 2.0",
+        tag: "Wompi & QR · Operaciones",
+        title: "Pago en línea con Wompi y pases QR activos",
+        caption: "Pago directo de administración vía PSE/tarjeta, credenciales QR para invitados y seguimiento de encomiendas en garita."
+      },
+      {
+        id: "saed-porteria-paquetes",
+        src: `${BASE_PATH}/projects/saed/07-porteria-paquetes.png`,
+        alt: "Consola de Portería y Seguridad para recepción y custodia de paquetería con PIN",
         tag: "Seguridad · Portería",
-        title: "Control de acceso y validación QR en garita",
-        caption: "Verificación instantánea de pases temporales de visitantes con registro automático de ingreso en bitácora."
+        title: "Recepción y custodia de paquetería con PIN",
+        caption: "Registro de encomiendas por transportadora con fotografía de evidencia y envío automático de PIN de retiro al residente."
       }
     ]
   },
@@ -515,6 +531,7 @@ function ProjectCard({project}: {project: Project}) {
           projectName={project.name}
           autoplay={false}
           loop={true}
+          featured={Boolean(project.featured)}
         />
       </div>
       <div className="project-content">
