@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import React from "react";
+import { createPortal } from "react-dom";
 import {
   Award,
   CheckCircle2,
@@ -355,7 +356,7 @@ export function CertificateShowcase({ certificates }: CertificateShowcaseProps) 
       </div>
 
       {/* Full-Screen Credential & PDF Modal Viewer */}
-      {modalOpen && (
+      {modalOpen && typeof document !== "undefined" && createPortal(
         <div
           className="rb-lightbox"
           role="dialog"
@@ -486,7 +487,8 @@ export function CertificateShowcase({ certificates }: CertificateShowcaseProps) 
               </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );

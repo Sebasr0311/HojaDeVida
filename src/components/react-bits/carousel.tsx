@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import * as React from "react";
+import { createPortal } from "react-dom";
 import { ChevronLeft, ChevronRight, Expand, Layers, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ReactBitsCarousel, {
@@ -105,7 +106,12 @@ export function Carousel({
       }
     };
     window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = prevOverflow;
+    };
   }, [lightboxOpen, step]);
 
   const items = React.useMemo(
@@ -244,8 +250,9 @@ export function Carousel({
         </div>
       </div>
 
-      {/* High-Definition Lightbox Modal */}
-      {lightboxOpen && (
+      {/* High-Definition Lightbox Modal — portaled to <body> so transformed ancestors
+          (e.g. `.project-card:hover { transform }`) cannot become its containing block. */}
+      {lightboxOpen && typeof document !== "undefined" && createPortal(
         <div
           className="rb-lightbox-backdrop"
           role="dialog"
@@ -323,7 +330,8 @@ export function Carousel({
               </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
