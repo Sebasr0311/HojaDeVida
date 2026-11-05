@@ -326,7 +326,7 @@ export function ProjectCarousel({
               {count > 1 && (
                 <button
                   type="button"
-                  className="rb-lightbox-nav rb-lightbox-nav--prev"
+                  className="rb-lightbox-nav rb-lightbox-nav-prev"
                   onClick={() => step(-1)}
                   aria-label="Imagen anterior"
                 >
@@ -344,7 +344,7 @@ export function ProjectCarousel({
               {count > 1 && (
                 <button
                   type="button"
-                  className="rb-lightbox-nav rb-lightbox-nav--next"
+                  className="rb-lightbox-nav rb-lightbox-nav-next"
                   onClick={() => step(1)}
                   aria-label="Siguiente imagen"
                 >
