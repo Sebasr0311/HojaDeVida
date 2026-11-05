@@ -14,6 +14,7 @@
   - `Magnet` (`https://reactbits.dev/r/Magnet-TS-CSS.json`)
   - `ClickSpark` (`https://reactbits.dev/r/ClickSpark-TS-CSS.json`)
   - `LogoLoop` (`https://reactbits.dev/r/LogoLoop-TS-CSS.json`)
+  - `Stack` (`https://reactbits.dev/r/Stack-TS-CSS.json`)
 - Sitio oficial: https://reactbits.dev/
 - Licencia publicada por el proyecto: MIT + Commons Clause. Revisa los términos actuales antes de redistribuir el código.
 

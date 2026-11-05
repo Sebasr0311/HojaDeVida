@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import {
-  ArrowDown, ArrowUpRight, BookOpen, Check, Cloud, Code2, Cpu, Database, Download,
+  ArrowDown, ArrowUpRight, Check, Cloud, Code2, Cpu, Database, Download,
   FileSpreadsheet, Github, GraduationCap, HeartPulse, Layers3, Linkedin, Lock, Mail,
   MapPin, Menu, MessageCircle, Server, ShieldCheck, ShoppingBag, Sparkles, Terminal, Workflow, X
 } from "lucide-react";
@@ -18,6 +18,7 @@ import { GlareHover } from "@/components/react-bits/GlareHover";
 import { Magnet } from "@/components/react-bits/Magnet";
 import { ClickSpark } from "@/components/react-bits/ClickSpark";
 import { LogoLoop, type LogoItem } from "@/components/react-bits/LogoLoop";
+import { CertificateShowcase, type CertificateItem } from "@/components/react-bits/CertificateShowcase";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
@@ -731,21 +732,115 @@ function Technology() {
   </div></section>;
 }
 
+const CERTIFICATES: CertificateItem[] = [
+  {
+    id: "mintic-ia-basico",
+    index: "01",
+    badge: "2026",
+    title: "Bootcamp de Inteligencia Artificial — Nivel Básico",
+    shortTitle: "Inteligencia Artificial · Nivel Básico",
+    issuer: "Ministerio TIC · Talento Tech",
+    organization: "Universidad Libre & Etraining",
+    date: "04 de agosto de 2026",
+    metric: "159 Horas",
+    summary:
+      "Certificación oficial expedida por el Ministerio de Tecnologías de la Información y las Comunicaciones (MinTIC), Unión Temporal Bootcamps Libret 2024 (Universidad Libre y Etraining) por culminar con éxito 159 horas de formación intensiva en Inteligencia Artificial.",
+    skills: ["Inteligencia Artificial", "Machine Learning", "Python & Datos", "Modelos Generativos"],
+    cardImageSrc: `${BASE_PATH}/certificados/mintic-ia-basico.png`,
+    fullImageSrc: `${BASE_PATH}/certificados/mintic-ia-basico.png`,
+    pdfUrl: `${BASE_PATH}/certificados/mintic-ia-basico.pdf`,
+    accentColor: "#1498a6",
+  },
+  {
+    id: "oracle-cloud-foundations-i",
+    index: "02",
+    badge: "OCI",
+    title: "Oracle Cloud Infrastructure Foundations I (English)",
+    shortTitle: "Oracle Cloud Infrastructure Foundations I",
+    issuer: "Oracle Academy",
+    organization: "Universidad Popular del Cesar · Ingeniería de Sistemas",
+    date: "07 de septiembre de 2026",
+    metric: "Award of Completion",
+    summary:
+      "Reconocimiento oficial de Oracle Academy por completar satisfactoriamente todo el plan de estudios en inglés sobre arquitectura cloud, identidad y acceso (IAM), redes virtuales (VCN), cómputo, almacenamiento y bases de datos autónomas en OCI.",
+    skills: ["Oracle Cloud (OCI)", "Arquitectura Cloud", "IAM & Seguridad", "Autonomous DB"],
+    cardImageSrc: `${BASE_PATH}/certificados/oracle-cloud-foundations-i.png`,
+    fullImageSrc: `${BASE_PATH}/certificados/oracle-cloud-foundations-i.png`,
+    pdfUrl: `${BASE_PATH}/certificados/oracle-cloud-foundations-i.pdf`,
+    accentColor: "#c74634",
+  },
+  {
+    id: "oxford-placement-test-b1",
+    index: "03",
+    badge: "B1 / B2",
+    title: "Oxford Placement Test — Inglés Intermedio (Use of English B2)",
+    shortTitle: "Oxford Placement Test · CEFR B1 / B2",
+    issuer: "Oxford University Press",
+    organization: "Institución Educativa Nacional Loperena",
+    date: "03 de noviembre de 2023",
+    metric: "CEFR B1 · Use of English B2",
+    summary:
+      "Evaluación internacional estandarizada bajo el Marco Común Europeo de Referencia (MCER / CEFR): puntaje global 59/100 (Nivel B1), destacándose en Use of English con 60/100 (Nivel B2) y Listening con 59/100 (Nivel B1).",
+    skills: ["Use of English · B2 (60 pts)", "Listening · B1 (59 pts)", "Overall CEFR B1", "Lectura Técnica"],
+    cardImageSrc: `${BASE_PATH}/certificados/oxford-placement-test-b1-card.png`,
+    fullImageSrc: `${BASE_PATH}/certificados/oxford-placement-test-b1.png`,
+    pdfUrl: `${BASE_PATH}/certificados/oxford-placement-test-b1.pdf`,
+    accentColor: "#3554d1",
+  },
+];
+
 function Journey() {
-  return <section className="section section-journey" id="trayectoria"><div className="container journey-grid">
-    <Reveal><div className="journey-intro"><SectionHeading eyebrow="04 / TRAYECTORIA" title="Aprender, construir y seguir evolucionando." description="Formación académica combinada con práctica real en ingeniería de software."/><div className="journey-decoration" aria-hidden="true"><span>LEARN</span><span>BUILD</span><span>REPEAT<span className="accent-dot">.</span></span></div></div></Reveal>
-    <Reveal delay={110}><div className="journey-content">
-      <div className="journey-group"><div className="journey-group-label"><GraduationCap size={17}/> EDUCACIÓN</div>
-        <div className="timeline-item"><div className="timeline-mark"/><span className="timeline-date">2025 — 2027 (previsto)</span><h3>Tecnólogo en Análisis y Desarrollo de Software</h3><p>Servicio Nacional de Aprendizaje · SENA</p><span className="timeline-note">Etapa lectiva · Buscando empresa patrocinadora</span></div>
-        <div className="timeline-item"><div className="timeline-mark"/><span className="timeline-date">2024 — Actualidad</span><h3>Ingeniería de Sistemas</h3><p>Universidad Popular del Cesar</p><span className="timeline-note">5.º semestre en curso al elaborar este portafolio</span></div>
+  return (
+    <section className="section section-journey" id="trayectoria">
+      <div className="container">
+        <div className="journey-grid">
+          <Reveal>
+            <div className="journey-intro">
+              <SectionHeading
+                eyebrow="04 / TRAYECTORIA & CERTIFICACIONES"
+                title="Aprender, construir y respaldar con hechos."
+                description="Formación académica en ingeniería de software respaldada por certificaciones oficiales verificables en Inteligencia Artificial, Cloud e Inglés."
+              />
+              <div className="journey-decoration" aria-hidden="true">
+                <span>LEARN</span>
+                <span>BUILD</span>
+                <span>
+                  VERIFY<span className="accent-dot">.</span>
+                </span>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={110}>
+            <div className="journey-content">
+              <div className="journey-group">
+                <div className="journey-group-label">
+                  <GraduationCap size={17} /> EDUCACIÓN SUPERIOR Y TECNOLÓGICA
+                </div>
+                <div className="timeline-item">
+                  <div className="timeline-mark" />
+                  <span className="timeline-date">2025 — 2027 (previsto)</span>
+                  <h3>Tecnólogo en Análisis y Desarrollo de Software (ADSO)</h3>
+                  <p>Servicio Nacional de Aprendizaje · SENA</p>
+                  <span className="timeline-note">Etapa lectiva · Disponible para patrocinio y contrato de aprendizaje</span>
+                </div>
+                <div className="timeline-item">
+                  <div className="timeline-mark" />
+                  <span className="timeline-date">2024 — Actualidad</span>
+                  <h3>Ingeniería de Sistemas</h3>
+                  <p>Universidad Popular del Cesar · Valledupar</p>
+                  <span className="timeline-note">5.º semestre en curso al elaborar este portafolio</span>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        <Reveal delay={160}>
+          <CertificateShowcase certificates={CERTIFICATES} />
+        </Reveal>
       </div>
-      <div className="journey-group journey-group--certs"><div className="journey-group-label"><BookOpen size={17}/> FORMACIÓN COMPLEMENTARIA</div>
-        <div className="certificate"><span className="certificate-year">2026</span><div><strong>Inteligencia Artificial — Nivel Básico</strong><span>Talento Tech / MinTIC · 159 horas</span></div><ArrowUpRight size={15}/></div>
-        <div className="certificate"><span className="certificate-year">2026</span><div><strong>Oracle Cloud Infrastructure Foundations I</strong><span>Oracle Academy · Curso completado</span></div><ArrowUpRight size={15}/></div>
-        <div className="certificate"><span className="certificate-year">B1</span><div><strong>Inglés intermedio</strong><span>Oxford Placement Test · Resultado 2023</span></div><ArrowUpRight size={15}/></div>
-      </div>
-    </div></Reveal>
-  </div></section>;
+    </section>
+  );
 }
 
 function Contact() {
