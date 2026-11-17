@@ -4,29 +4,23 @@
 
 - Proyecto: React Bits por David Haz.
 - Registro oficial: `https://reactbits.dev/r/{name}.json`
-- Componentes integrados en `src/components/react-bits/`:
-  - `Carousel` (`https://reactbits.dev/r/Carousel-TS-CSS.json`)
-  - `SpotlightCard` (`https://reactbits.dev/r/SpotlightCard-TS-CSS.json`)
-  - `ShinyText` (`https://reactbits.dev/r/ShinyText-TS-CSS.json`)
-  - `DecryptedText` (`https://reactbits.dev/r/DecryptedText-TS-CSS.json`)
-  - `TiltedCard` (`https://reactbits.dev/r/TiltedCard-TS-CSS.json`)
-  - `GlareHover` (`https://reactbits.dev/r/GlareHover-TS-CSS.json`)
-  - `Magnet` (`https://reactbits.dev/r/Magnet-TS-CSS.json`)
-  - `ClickSpark` (`https://reactbits.dev/r/ClickSpark-TS-CSS.json`)
-  - `LogoLoop` (`https://reactbits.dev/r/LogoLoop-TS-CSS.json`)
-  - `Stack` (`https://reactbits.dev/r/Stack-TS-CSS.json`)
+- Componentes adaptados en `src/components/react-bits/` (TypeScript, estilos propios):
+  - `SpotlightCard`, `ShinyText`, `DecryptedText`, `Magnet` (desde el registro oficial `https://reactbits.dev/r/{name}-TS-CSS.json`)
+  - `BlurText`, `CountUp`, `ScrollVelocity`, `DotGrid`, `ProfileCard` (reimplementaciones ligeras basadas en los componentes homónimos de React Bits)
 - Sitio oficial: https://reactbits.dev/
 - Licencia publicada por el proyecto: MIT + Commons Clause. Revisa los términos actuales antes de redistribuir el código.
 
-## shadcn/ui y Radix UI
+## Tipografías
 
-- API local de los componentes Button, Badge y Tabs según el patrón shadcn/ui.
-- Documentación: https://ui.shadcn.com/docs/installation/next
-- Radix: https://www.radix-ui.com/primitives/docs/overview/introduction
+- Geist y Geist Mono (Vercel, SIL OFL 1.1) e Instrument Serif (SIL OFL 1.1), vía Fontsource.
 
 ## Íconos
 
 - Lucide React: https://lucide.dev/
+
+## Capturas de proyectos
+
+- Capturas de SAED, Baked Bliss Treats (Miga), FC Motion, Alexa Beauty, MediTraje, Digitalizador IA y DWH MusicBrainz tomadas de los propios proyectos del autor.
 
 ## Fotografía y CV
 
