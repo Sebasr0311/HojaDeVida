@@ -299,7 +299,7 @@ export const PROJECTS: Project[] = [
 export const SKILL_GROUPS = [
   { id: "backend", title: "Backend", lead: "APIs que aguantan negocio real.", items: ["Java 17/21", "Spring Boot", "Spring Security", "APIs REST", "JWT", "Clean Architecture"] },
   { id: "frontend", title: "Frontend y móvil", lead: "Interfaces pensadas primero para el teléfono.", items: ["React", "Next.js", "TypeScript", "Vite", "Tailwind", "PWA + Web Push"] },
-  { id: "data", title: "Datos", lead: "Del modelo relacional al tablero.", items: ["Oracle SQL", "PL/SQL", "PostgreSQL", "Row-Level Security", "ETL en Python", "Power BI / DAX"] },
+  { id: "data", title: "Datos", lead: "Del modelo relacional al tablero.", items: ["Oracle SQL", "PL/SQL", "PostgreSQL", "Row-Level Security", "ETL en Python", "Power BI / DAX", "BigQuery · Snowflake · Databricks (fundamentos)"] },
   { id: "cloud", title: "Cloud y DevOps", lead: "Desplegado, versionado y medido.", items: ["Oracle Cloud (OCI)", "Supabase", "Vercel", "Render", "Docker", "Flyway", "GitHub Actions"] },
   { id: "ai", title: "IA y automatización", lead: "Menos trabajo manual.", items: ["Google Gemini API", "Python", "Visión artificial", "Edge Functions", "pg_cron"] },
   { id: "quality", title: "Calidad", lead: "Lo que no se prueba, se rompe.", items: ["JUnit 5", "Mockito", "Vitest", "Playwright", "Scrum"] },
@@ -330,4 +330,20 @@ export const CERTIFICATES: Certificate[] = [
   { id: "mintic", title: "Bootcamp de Inteligencia Artificial — Nivel Básico", issuer: "MinTIC · Talento Tech · Universidad Libre", date: "Agosto 2026", metric: "159 horas", summary: "Formación intensiva en IA, machine learning, Python para datos y modelos generativos.", image: asset("/certificados/mintic-ia-basico.webp"), pdf: asset("/certificados/mintic-ia-basico.pdf"), accent: "#1f6f78" },
   { id: "oracle", title: "Oracle Cloud Infrastructure Foundations I", issuer: "Oracle Academy", date: "Septiembre 2026", metric: "Award of Completion", summary: "Arquitectura cloud, IAM, redes virtuales (VCN), cómputo, almacenamiento y Autonomous Database en OCI, en inglés.", image: asset("/certificados/oracle-cloud-foundations-i.webp"), pdf: asset("/certificados/oracle-cloud-foundations-i.pdf"), accent: "#a8452f" },
   { id: "oxford", title: "Oxford Placement Test — Inglés", issuer: "Oxford University Press", date: "Noviembre 2023", metric: "CEFR B1 · Use of English B2", summary: "Puntaje global 59/100 (B1), Use of English 60/100 (B2) y Listening 59/100 (B1).", image: asset("/certificados/oxford-placement-test-b1-card.webp"), pdf: asset("/certificados/oxford-placement-test-b1.pdf"), accent: "#4a54b8" },
+];
+
+/* ───────────────────────── Cursos complementarios ───────────────────────── */
+
+export type Course = { id: string; title: string; topic: string; hours: number; date: string; image: string; pdf: string };
+
+const dc = (slug: string) => ({ image: asset(`/certificados/datacamp/${slug}.webp`), pdf: asset(`/certificados/datacamp/${slug}.pdf`) });
+
+export const COURSES_PROVIDER = "DataCamp";
+
+export const COURSES: Course[] = [
+  { id: "data-engineering", title: "Introduction to Data Engineering", topic: "Pipelines, ETL y almacenamiento", hours: 4, date: "9 nov 2026", ...dc("introduction-to-data-engineering") },
+  { id: "bigquery", title: "Introduction to BigQuery", topic: "Data warehouse en Google Cloud", hours: 4, date: "9 nov 2026", ...dc("introduction-to-bigquery") },
+  { id: "databricks", title: "Introduction to Databricks", topic: "Lakehouse y Spark", hours: 3, date: "8 nov 2026", ...dc("introduction-to-databricks") },
+  { id: "snowflake", title: "Introduction to Snowflake", topic: "Data cloud y SQL analítico", hours: 2, date: "8 nov 2026", ...dc("introduction-to-snowflake") },
+  { id: "cloud", title: "Understanding Cloud Computing", topic: "Modelos de servicio y despliegue", hours: 2, date: "9 nov 2026", ...dc("understanding-cloud-computing") },
 ];

@@ -2,8 +2,8 @@
 /* eslint-disable @next/next/no-img-element */
 
 import * as React from "react";
-import { ArrowUpRight, Award, Download, FileText, Github, GraduationCap, Linkedin, Mail, MessageCircle } from "lucide-react";
-import { CERTIFICATES, EDUCATION, LINKS, SKILL_GROUPS } from "@/data/portfolio";
+import { ArrowUpRight, Award, BookOpen, Download, FileText, Github, GraduationCap, Linkedin, Mail, MessageCircle } from "lucide-react";
+import { CERTIFICATES, COURSES, COURSES_PROVIDER, EDUCATION, LINKS, SKILL_GROUPS } from "@/data/portfolio";
 import { SpotlightCard } from "@/components/react-bits/spotlight-card";
 import { Magnet } from "@/components/react-bits/Magnet";
 import { BlurText } from "@/components/react-bits/BlurText";
@@ -41,6 +41,7 @@ export function Stack() {
 export function Journey() {
   const open = useLightbox();
   const shots = CERTIFICATES.map((c) => ({ src: c.image, alt: c.title, title: c.title, caption: `${c.issuer} · ${c.date}` }));
+  const courseShots = COURSES.map((c) => ({ src: c.image, alt: `Certificado ${COURSES_PROVIDER}: ${c.title}`, title: c.title, caption: `${COURSES_PROVIDER} · ${c.hours} h · ${c.date}` }));
   return (
     <section className="section journey" id="trayectoria" aria-labelledby="journey-title">
       <div className="wrap journey-grid">
@@ -75,6 +76,27 @@ export function Journey() {
             </Reveal>
           ))}
         </div>
+      </div>
+      <div className="wrap courses">
+        <div className="courses-head">
+          <p className="mono kicker"><BookOpen size={14} /> Cursos complementarios · {COURSES_PROVIDER}</p>
+          <p className="courses-total"><strong>{COURSES.reduce((n, c) => n + c.hours, 0)} h</strong> de ingeniería de datos y cloud · noviembre 2026</p>
+        </div>
+        <ul className="courses-grid">
+          {COURSES.map((c, i) => (
+            <Reveal as="li" key={c.id} delay={i * 60} className="course">
+              <button type="button" className="course-thumb" onClick={() => open(courseShots, i)} aria-label={`Ver certificado: ${c.title}`}>
+                <img src={c.image} alt="" loading="lazy" width={1375} height={794} />
+              </button>
+              <div className="course-body">
+                <span className="mono">{c.hours} h · {c.date}</span>
+                <h3>{c.title}</h3>
+                <p>{c.topic}</p>
+                <a className="link-arrow" href={c.pdf} target="_blank" rel="noopener noreferrer"><FileText size={13} /> PDF <ArrowUpRight size={13} /></a>
+              </div>
+            </Reveal>
+          ))}
+        </ul>
       </div>
     </section>
   );
